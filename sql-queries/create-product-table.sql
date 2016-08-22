@@ -1,0 +1,10 @@
+CREATE TABLE Product (
+	ProductId INT NOT NULL IDENTITY(1,1),
+	ProductName VARCHAR(100) NOT NULL,
+	Make VARCHAR(50) NOT NULL,
+	Model VARCHAR(50) NOT NULL,
+	ImagePath VARCHAR(100) NOT NULL,
+	PRIMARY KEY (ProductId),
+	CategoryId INT FOREIGN KEY REFERENCES 
+	Category(CategoryId)
+);
