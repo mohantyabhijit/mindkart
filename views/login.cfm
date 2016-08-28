@@ -15,33 +15,42 @@
 		</title>
 	</head>
 		<body>
-				<cfinclude template = "header.cfm">
-				<cfinclude template = "navbar.cfm">
-				<cfinclude template = "side-menu.cfm">
-				<form name = "myForm" class = "form-inline" >
+				<cfinclude template = "/mindkart/views/layout/header.cfm">
+				<cfinclude template = "/mindkart/views/layout/navbar.cfm">
+
+
+				<form name = "myForm" class = "form-inline" method = "post" action = "/mindkart/controllers/login-action.cfm" >
 					</br></br>
+
 				  <div class="form-group" id = "div-email">
 					 <label> Enter Email Id: </label>
-				    <input type="email" class="form-control" id="email"  onblur = "checkEmail()" placeholder = "Enter E-Mail Id">
+				    <input type="email" class="form-control" name="email" id="email"  onblur = "checkEmail()" placeholder = "Enter E-Mail Id">
 				  </div>
 				  </br></br>
 				  <span id = "span-email"></span>
-				  </br></br>
+
 				  <div class="form-group" id = "div-pwd">
 					  <label> Enter Password: </label>
-				    <input type="password" class="form-control" id="pwd"  onblur = "checkPassword(document.myForm.pwd)" placeholder = "Enter Password">
+				    <input type="password" class="form-control" name = "pwd" id="pwd"  onblur = "checkPassword(document.myForm.pwd)" placeholder = "Enter Password">
 				  </div>
 				  </br></br>
 				  <span id = "span-pwd"></span>
-				  </br></br>
+
 				  <div class="form-group" id="div-submit">
 				    <div class="col-lg-12">
-				      <button type="submit" class="btn btn-primary">Submit</button>
+				      <button type="submit" class="btn btn-primary">Register</button>
 				    </div>
 				  </div>
 
+				  <div class="form-group" id="div-submit">
+				    <div class="col-lg-12">
+				      <button type="submit"  class = "btn btn-primary">Login</button>
+				    </div>
+				  </div>
+					<span >If you do not have an account please register with us</span>
 				 </form>
+
 				</br></br></br></br></br></br></br></br></br></br></br>
-				<cfinclude template = "footer.cfm">
+				<cfinclude template = "/mindkart/views/layout/footer.cfm">
 		</body>
 </html>

@@ -8,15 +8,25 @@
 		<link rel="stylesheet" href = "../assets/css/page-stylesheet.css">
 	</head>
 		<body>
-				</br></br></br></br>
-				 <footer class="container-fluid text-center" id="footer">
-				  	<p>
-					  	Created By : Abhijit Mohanty
-					</p>
-				 </footer>
 
+				<!--- <cfinclude template = "header.cfm">
+				<cfinclude template = "navbar.cfm"> --->
+				<cftry>
+				<cfloop index = "errorIndex" list = "#session.showErrors#" delimiters = ",">
+    					<cfoutput>#errorIndex#<br></cfoutput>
+				</cfloop>
+					<cfcatch type="any">
+						<cfthrow message="Some error occured">
+					</cfcatch>
+				</cftry>
+<!--- 				<cfinclude template = "footer.cfm"> --->
+				<br>
 		</body>
 </html>
+
+
+
+
 
 
 

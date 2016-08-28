@@ -347,3 +347,15 @@ function checkAll()
 	checkOccupation();
 	checkDOB();
 }
+//method to do AJAX call and show server side validation
+function checkErrors()
+{
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+		      document.getElementById("showErrors").innerHTML = xhttp.responseText;
+		    }
+	};
+	xhttp.open ("GET", "../views/errorsView.cfm", true);
+	xhttp.send();
+}

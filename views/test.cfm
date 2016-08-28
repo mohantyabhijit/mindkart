@@ -8,16 +8,25 @@
 		<link rel="stylesheet" href = "../assets/css/page-stylesheet.css">
 		<script type = "text/javascript"  src = "../assets/js/jquery-3.1.0.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script type = "text/javascript"  src = "../assets/js/side-menu.js"></script>
 	</head>
 		<body>
-			<script type = "text/javascript">
-       			  $(document).ready(function(){
-           			 alert("Hello, World!");
-       				  });
-    		  </script>
-			<cfinclude template="header.cfm">
-			<cfinclude template="navbar.cfm">
-			<cfinclude template="side-menu.cfm">
-			<cfinclude template="footer.cfm">
+
+			<cfinclude template="/mindkart/views/layout/header.cfm">
+			<cfinclude template="/mindkart/views/layout/navbar.cfm">
+
+
+			<div id="showCategories">
+
+			<!--- <cfquery
+					name = "showAllCategories"
+					dataSource = "mindkart"
+					>
+					SELECT TOP 7 CategoryName FROM Category
+					WHERE CategoryId > 0;
+			</cfquery>
+			<cfoutput query = "showAllCategories">#showAllCategories.CategoryName##showAllCategories.CategoryName#</cfoutput>
+				<cfinclude template="footer.cfm"> --->
+			</div>
 		</body>
 </html>
