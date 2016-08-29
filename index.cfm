@@ -12,21 +12,23 @@ CREATED BY : ABHIJIT MOHANTY
   <title>MindKart</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href = "assets/css/page-stylesheet.css">
   <link rel="stylesheet" href = "assets/css/bootstrap.min.css">
   <link rel="stylesheet" href = "assets/css/side-menu-stylesheet.css">
   <link rel="shortcut icon" href="/mindkart/assets/images/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/mindkart/assets/images/favicon.ico" type="image/x-icon">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type = "text/javascript"  src = "assets/js/side-menu.js"></script>
 </head>
 <body>
-	<!--- <cfdump var="#session.loggedin#"><cfabort> --->
+
 <cfinclude template = "views/layout/header.cfm">
 <cfinclude template = "views/layout/navbar.cfm">
 </br></br>
+
+<!---
 <div class="container">
   <div class="row">
     <div class="col-sm-4">
@@ -69,6 +71,36 @@ CREATED BY : ABHIJIT MOHANTY
     </div>
   </div>
 </div><br>
+--->
+<cfset queryToLoopCategory = request.dbOperation.getAllCategoryNamesFromDb()>
+<div class="container">
+					  <div class="row">
+<cfloop query = "queryToLoopCategory">
+
+	<div class="col-sm-4">
+					      <div class="panel panel-danger">
+					        <div class="panel-heading">
+								<cfoutput>
+									<!--- <cfdump var="#queryToLoop#"><cfabort> --->
+									Get Best #queryToLoopCategory.CategoryName#
+								</cfoutput>
+
+
+							</div>
+					        <div class="panel-body"  >
+								<cfscript>
+								  request.dbOperation.getImageOfFirstProductFromDb(#queryToLoopCategory.CategoryId#);
+								</cfscript>
+							</div>
+					         <cfoutput>
+					         <div class="panel-footer"><a href = "/mindkart/views/utility/products.cfm?CategoryId=#queryToLoopCategory.CategoryId#">Buy Now !!</a></div>
+					         </cfoutput>
+							</div>
+						</div>
+
+					</cfloop>
+			</div>
+		</div>
 
 <br><br>
 

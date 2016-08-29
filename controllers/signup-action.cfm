@@ -21,6 +21,7 @@
 				dbInsertDataCall = request.dbOperation.insertIntoDb();
 				session.loggedin = true;
 
+
 		    </cfscript>
 		    <cflocation url = "/mindkart/index.cfm">
 

@@ -14,6 +14,7 @@
 	</head>
 		<body>
 			<!--- <cfdump var="#session.loggedin#"><cfabort> --->
+			<!--- <cfdump var="#session.name#"><cfabort> --->
 
 			<div id = "mySidenav" class = "sidenav">
   				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
@@ -45,15 +46,16 @@
 					        <li><a href="/mindkart/views/contactus.cfm">Contact Us</a></li>
 					      </ul>
 
-					      <cfif session.loggedin EQ true >
+					      <cfif IsDefined ("session.name")>
 						  <ul class="nav navbar-nav navbar-right">
 							  <li><a href="#"><span class="glyphicon glyphicon-user"></span><cfoutput>Hi #session.name#</cfoutput></a></li>
 							  <li><a href="/mindkart/views/logout.cfm"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
 					       	  <li><a href="/mindkart/views/utility/cart.cfm"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+
 					      </ul>
 					      <cfelse>
 					      <ul class="nav navbar-nav navbar-right">
-							  <li><a href="/mindkart/views/login.cfm"><span class="glyphicon glyphicon-user"></span>Login</a></li>
+					       	  <li><a href="/mindkart/views/login.cfm"><span class="glyphicon glyphicon-user"></span>Login</a></li>
 							  <li><a href="/mindkart/views/signup.cfm"><span class="glyphicon glyphicon-user"></span>Register</a></li>
 					       	  <li><a href="/mindkart/views/utility/cart.cfm"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
 					      </ul>

@@ -28,163 +28,41 @@
 				<cfinclude template="/mindkart/views/layout/navbar.cfm">
 				<cfset arguments.catId = #URL.CategoryId#>
 				</br></br>
-				<cfif arguments.catId EQ 1>
-					<div class="container">
+
+
+
+			<div class="container">
 					  <div class="row">
-					    <div class="col-sm-4">
-					      <div class="panel panel-primary">
-					        <div class="panel-heading">
-						        <cfscript>
-						        productNameCall = request.dbOperation.showProductName(20);
-						        </cfscript>
-							</div>
-					        <div class="panel-body">
-								</br>
-								<cfscript>
-								productCall = request.dbOperation.showImageDetails(20);
-								</cfscript>
-							</div>
-					        <div class="panel-footer"><a href = "/mindkart/views/utility/product-detail.cfm?ProductId=20">Buy Now !!</a></div>
-					      </div>
-					    </div>
-					    <div class="col-sm-4">
+			<cfif arguments.catId GT 0>
+
+				<cfset queryToLoop = request.dbOperation.getAllProductIdsFromDb(arguments.catId)>
+					<cfloop query = "queryToLoop">
+
+						<div class="col-sm-4">
 					      <div class="panel panel-danger">
 					        <div class="panel-heading">
-						         <cfscript>
-						        productNameCall = request.dbOperation.showProductName(22);
-						        </cfscript>
+								<cfscript>
+						        request.dbOperation.showProductName(queryToLoop.ProductId);
+								</cfscript>
 							</div>
 					        <div class="panel-body"  >
 								<cfscript>
-								productCall = request.dbOperation.showImageDetails(22);
+								request.dbOperation.showImageDetails(queryToLoop.ProductId);
 								</cfscript>
 							</div>
-					        <div class="panel-footer"><a href = "/mindkart/views/utility/product-detail.cfm?ProductId=22">Buy Now !!</a></div>
+					        <cfoutput><div class="panel-footer"><a href = "/mindkart/views/utility/product-detail.cfm?ProductId=#queryToLoop.ProductId#">Buy Now !!</a></div></cfoutput>
 					      </div>
 					    </div>
-					    <div class="col-sm-4">
-					      <div class="panel panel-success">
-					        <div class="panel-heading">
-						         <cfscript>
-						        productNameCall = request.dbOperation.showProductName(25);
-						        </cfscript>
-							</div>
-					        <div class="panel-body">
-								<cfscript>
-								productCall = request.dbOperation.showImageDetails(25);
-								</cfscript>
-							</div>
-					        <div class="panel-footer"><a href = "/mindkart/views/utility/product-detail.cfm?ProductId=25">Buy Now !!</a></div>
-					      </div>
-					    </div>
-					  </div>
-					</div><br>
-					<cfelseif arguments.catId EQ 2>
-					<div class="container">
-					  <div class="row">
-					    <div class="col-sm-4">
-					      <div class="panel panel-primary">
-					        <div class="panel-heading">
-						         <cfscript>
-						        productNameCall = request.dbOperation.showProductName(33);
-						        </cfscript>
-							</div>
-					        <div class="panel-body">
-								</br>
-								<cfscript>
-								productCall = request.dbOperation.showImageDetails(33);
-								</cfscript>
-							</div>
-					        <div class="panel-footer"><a href = "/mindkart/views/utility/product-detail.cfm?ProductId=33">Buy Now !!</a></div>
-					      </div>
-					    </div>
-					    <div class="col-sm-4">
-					      <div class="panel panel-danger">
-					        <div class="panel-heading">
-						         <cfscript>
-						        productNameCall = request.dbOperation.showProductName(36);
-						        </cfscript>
-							</div>
-					        <div class="panel-body"  >
-								<cfscript>
-								productCall = request.dbOperation.showImageDetails(36);
-								</cfscript>
-							</div>
-					        <div class="panel-footer"><a href = "/mindkart/views/utility/product-detail.cfm?ProductId=36">Buy Now !!</a></div>
-					      </div>
-					    </div>
-					    <div class="col-sm-4">
-					      <div class="panel panel-success">
-					        <div class="panel-heading">
-						        <cfscript>
-						        productNameCall = request.dbOperation.showProductName(37);
-						        </cfscript>
-							</div>
-					        <div class="panel-body">
-								<cfscript>
-								productCall = request.dbOperation.showImageDetails(37);
-								</cfscript>
-							</div>
-					        <div class="panel-footer"><a href = "/mindkart/views/utility/product-detail.cfm?ProductId=37">Buy Now !!</a></div>
-					      </div>
-					    </div>
-					  </div>
-					</div><br>
-					<cfelseif arguments.catId EQ 3>
-					<div class="container">
-					  <div class="row">
-					    <div class="col-sm-4">
-					      <div class="panel panel-primary">
-					        <div class="panel-heading">
-						         <cfscript>
-						        productNameCall = request.dbOperation.showProductName(38);
-						        </cfscript>
-							</div>
-					        <div class="panel-body">
-								</br>
-								<cfscript>
-								productCall = request.dbOperation.showImageDetails(38);
-								</cfscript>
-							</div>
-					        <div class="panel-footer"><a href = "/mindkart/views/utility/product-detail.cfm?ProductId=38">Buy Now !!</a></div>
-					      </div>
-					    </div>
-					    <div class="col-sm-4">
-					      <div class="panel panel-danger">
-					        <div class="panel-heading">
-						         <cfscript>
-						        productNameCall = request.dbOperation.showProductName(39);
-						        </cfscript>
-							</div>
-					        <div class="panel-body"  >
-								<cfscript>
-								productCall = request.dbOperation.showImageDetails(39);
-								</cfscript>
-							</div>
-					        <div class="panel-footer"><a href = "/mindkart/views/utility/product-detail.cfm?ProductId=39">Buy Now !!</a></div>
-					      </div>
-					    </div>
-					    <div class="col-sm-4">
-					      <div class="panel panel-success">
-					        <div class="panel-heading">
-						         <cfscript>
-						        productNameCall = request.dbOperation.showProductName(40);
-						        </cfscript>
-						    </div>
-					        <div class="panel-body">
-								<cfscript>
-								productCall = request.dbOperation.showImageDetails(40);
-								</cfscript>
-							</div>
-					        <div class="panel-footer"><a href = "/mindkart/views/utility/product-detail.cfm?ProductId=40">Buy Now !!</a></div>
-					      </div>
-					    </div>
-					  </div>
-					</div><br>
-					</cfif>
+					</cfloop>
+					</div>
+				</div>
+
+
+
+
 
 				<cfinclude template="/mindkart/views/layout/footer.cfm">
-
+			</cfif>
 		</body>
 </html>
 

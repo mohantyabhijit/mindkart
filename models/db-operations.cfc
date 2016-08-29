@@ -38,12 +38,13 @@
 
 
 					</cfquery>
-
+					<cfset sessionRotate() />
+					<cfset session.name = "Form.fname" />
 		</cffunction>
 <!--- function to show the image of a product from DB using Product Id --->
 	<cffunction
 				name = "showImageDetails"
-				access = "remote">
+				access = "remote" >
 				<cfargument
 							name = "productId"
 							default = ""
@@ -51,7 +52,7 @@
 				<cfquery
 								name = "showImageFromDb"
 								dataSource = "mindkart">
-								SELECT ProductName, Make, Model, ImagePath,ProductDescription
+								SELECT ImagePath
 								FROM Product
 								WHERE ProductId = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.productId#">
 				</cfquery>
@@ -78,7 +79,7 @@
 						<u>Product Name :- </u> #showProductFromDb.ProductName# <br />
 						<u>Manufacturer :- </u> #showProductFromDb.Make# <br />
 						<u>Model :- </u> #showProductFromDb.Model# <br />
-						<u>Product Description </u>:- <br />#showProductFromDb.ProductDescription# <br /><br />
+						<u>Product Description </u>:- <br />#showProductFromDb.ProductDescription# <br />
 						<u>Price :-</u> Rs.#showProductFromDb.Price# <br />
 				</cfoutput>
 	</cffunction>
@@ -102,7 +103,60 @@
 				</cfoutput>
 	</cffunction>
 
+<!--- function to store list of product ids under a particular category --->
+	<cffunction
+				name = "getAllProductIdsFromDb"
+				access = "remote"
+				returnType = "query">
+				<cfargument
+						name = "categoryId"
+						default=1
+						type = "numeric">
+				<cfquery
+						name = "getProductIds">
+						SELECT ProductId
+						FROM Product
+						WHERE CategoryId = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.categoryId#">
+				</cfquery>
 
+
+	<cfreturn getProductIds />
+	</cffunction>
+	<!--- function to get all catrgories names  --->
+	<cffunction
+				name = "getAllCategoryNamesFromDb"
+				access = "remote"
+				returnType = "query">
+				<cfquery
+						name = "getCategoryNames">
+						SELECT TOP 3 CategoryName, CategoryId
+						FROM Category
+				</cfquery>
+	<cfreturn getCategoryNames />
+	</cffunction>
+<!--- function to get picture of first product from a category --->
+<cffunction
+				name = "getImageOfFirstProductFromDb"
+				access = "remote"
+				returnType = "any">
+				<cfargument
+						name = "categoryId"
+						default=1
+						type = "numeric">
+				<cfquery
+						name = "getImage">
+						SELECT TOP 1 ImagePath
+						FROM Product
+						WHERE CategoryId = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.categoryId#">
+				</cfquery>
+				<cfoutput>
+					<img src = "#getImage.ImagePath#" alt="productImage" class="img-responsive"  width = "100%">
+				</cfoutput>
+
+</cffunction>
+
+
+	<!--- function to get product name and price from db --->
 	<cffunction
 				name = "getAllProductsFromDb"
 				access = "remote"

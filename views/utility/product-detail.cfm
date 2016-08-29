@@ -21,7 +21,6 @@
 						        <cfscript>
 							    productNameCall = request.dbOperation.showProductName(arguments.productId);
 								</cfscript>
-
 							</div>
 					        <div class="panel-body">
 								</br>
@@ -44,7 +43,7 @@
 					      </div>
 					    </div>
 						</div>
-
+					</div>
 
 
 			<cfinclude  template="/mindkart/views/layout/footer.cfm">
