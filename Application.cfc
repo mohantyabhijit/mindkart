@@ -20,17 +20,23 @@ function onApplicationStart()
 		return true;
 	}
 function onSessionStart()
-{
-		session.loggedin = false;
-		session.name = "";
-}
+	{
+			session.loggedin = false;
+			session.name = "";
+	}
 function onRequestStart()
 	{
 		request.signupValidation = CreateObject ("component","models.server-side-validation");
 		request.dbOperation = CreateObject ("component","models.db-operations");
 
 	}
+function onRequestEnd() {}
 
+function onSessionEnd( struct SessionScope, struct ApplicationScope ) {}
+
+function onApplicationEnd( struct ApplicationScope ) {}
+
+function onError( any Exception, string EventName ) {}
 //function onError ()
 	//{
 		//location ("/mindkart/index.cfm");

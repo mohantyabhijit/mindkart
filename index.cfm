@@ -26,52 +26,7 @@ CREATED BY : ABHIJIT MOHANTY
 
 <cfinclude template = "views/layout/header.cfm">
 <cfinclude template = "views/layout/navbar.cfm">
-</br></br>
 
-<!---
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="panel panel-primary">
-        <div class="panel-heading">GET BEST TELEVISIONS</div>
-        <div class="panel-body">
-			</br>
-			<cfscript>
-			productCall = request.dbOperation.showImageDetails(33);
-			</cfscript>
-		</div>
-        <div class="panel-footer"><a href = "/mindkart/views/utility/products.cfm?CategoryId=2">Buy Now !!</a></div>
-      </div>
-    </div>
-
-    <div class="col-sm-4">
-      <div class="panel panel-danger">
-        <div class="panel-heading">GET BEST LAPTOPS</div>
-        <div class="panel-body"  >
-			<cfscript>
-			productCall = request.dbOperation.showImageDetails(39);
-			</cfscript>
-
-		</div>
-        <div class="panel-footer"><a href = "/mindkart/views/utility/products.cfm?CategoryId=3">Buy Now !!</a></div>
-      </div>
-    </div>
-
-    <div class="col-sm-4">
-      <div class="panel panel-success">
-        <div class="panel-heading">GET BEST MOBILES</div>
-        <div class="panel-body">
-			<cfscript>
-			productCall = request.dbOperation.showImageDetails(25);
-			</cfscript>
-
-		</div>
-        <div class="panel-footer"><a href = "/mindkart/views/utility/products.cfm?CategoryId=1">Buy Now !!</a></div>
-      </div>
-    </div>
-  </div>
-</div><br>
---->
 <cfset queryToLoopCategory = request.dbOperation.getAllCategoryNamesFromDb()>
 <div class="container">
 					  <div class="row">
