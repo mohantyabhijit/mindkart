@@ -58,8 +58,14 @@
 					      </div>
 					    </div>
 			</div>
+			</div>
+			</div>
+			</div>
+
 			<br /><br /><br />
+
 			<cfinclude template = "/mindkart/views/layout/footer.cfm">
+
 		</body>
 </html>
 

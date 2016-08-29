@@ -14,7 +14,11 @@
 
 			<cfinclude template="/mindkart/views/layout/header.cfm">
 			<cfinclude template="/mindkart/views/layout/navbar.cfm">
-
+			<cfscript>
+				/*productDetailsCall = request.dbOperation.showProductDetails(20);*/
+				productNameCall = request.dbOperation.showProductName(20);
+				/*productImageCall = request.dbOperation.showImageDetails(20);*/
+			</cfscript>
 
 			<div id="showCategories">
 

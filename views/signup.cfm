@@ -27,7 +27,7 @@
 			</div> --->
 
 
-			<form name="myForm"   class = "form-inline" method="post" action="../controllers/signup-action.cfm" >
+			<form name="myForm"   class = "form-inline" method="post" action="/mindkart/controllers/signup-action.cfm" >
 				</br></br>
 
 				<div class="form-group" id = "div-email">

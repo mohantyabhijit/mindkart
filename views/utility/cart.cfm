@@ -15,25 +15,6 @@
 		<body>
 					<cfinclude template = "/mindkart/views/layout/header.cfm">
 					<cfinclude template = "/mindkart/views/layout/navbar.cfm">
-					<cfquery
-								name = "showFromDb"
-								dataSource = "mindkart"
-								>
-								SELECT ProductName, Make, Model, ImagePath,ProductDescription
-								FROM Product
-								WHERE ProductId = '20'
-					</cfquery>
-					<cfoutput query="showFromDb">
-						Product Name : - #showFromDb.ProductName#</br>
-						Manufacturer :-  #showFromDb.Make# </br>
-						Product Description :- #showFromDb.ProductDescription#
-						</br>
-						<!--- <cfdump var="#showFromDb.ImagePath#"><cfabort> --->
-
-						<img src = "#showFromDb.ImagePath#" alt="errorImage" height = "20%" width = "10%">
-
-						</cfoutput>
-						<!--- <cfdump var="#showFromDb.ImagePath#"><cfabort> --->
 
 
 					<cfinclude template = "/mindkart/views/layout/footer.cfm">

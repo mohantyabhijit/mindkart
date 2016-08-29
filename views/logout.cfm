@@ -8,8 +8,11 @@
 		<link rel="stylesheet" href = "/mindkart/assets/css/page-stylesheet.css">
 	</head>
 		<body>
+				<!--- <cfdump var="#session#"><cfabort> --->
+				<cfset StructClear(session)>
+				<cfset session.loggedin = false>
 
-				<cfset StructDelete(Session, "ShoppingCartItems")>
+
 				<cflocation url = "/mindkart/index.cfm">
 
 		</body>

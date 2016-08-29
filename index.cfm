@@ -23,6 +23,7 @@ CREATED BY : ABHIJIT MOHANTY
   <script type = "text/javascript"  src = "assets/js/side-menu.js"></script>
 </head>
 <body>
+	<!--- <cfdump var="#session.loggedin#"><cfabort> --->
 <cfinclude template = "views/layout/header.cfm">
 <cfinclude template = "views/layout/navbar.cfm">
 </br></br>
@@ -34,10 +35,10 @@ CREATED BY : ABHIJIT MOHANTY
         <div class="panel-body">
 			</br>
 			<cfscript>
-			productCall = request.dbOperation.showProductDetailsIndex(33);
+			productCall = request.dbOperation.showImageDetails(33);
 			</cfscript>
 		</div>
-        <div class="panel-footer"><a href = "/mindkart/views/utility/products.cfm?CategoryId=2">Buy Now !!</div>
+        <div class="panel-footer"><a href = "/mindkart/views/utility/products.cfm?CategoryId=2">Buy Now !!</a></div>
       </div>
     </div>
 
@@ -46,11 +47,11 @@ CREATED BY : ABHIJIT MOHANTY
         <div class="panel-heading">GET BEST LAPTOPS</div>
         <div class="panel-body"  >
 			<cfscript>
-			productCall = request.dbOperation.showProductDetailsIndex(39);
+			productCall = request.dbOperation.showImageDetails(39);
 			</cfscript>
 
 		</div>
-        <div class="panel-footer"><a href = "/mindkart/views/utility/products.cfm?CategoryId=3">Buy Now !!</div>
+        <div class="panel-footer"><a href = "/mindkart/views/utility/products.cfm?CategoryId=3">Buy Now !!</a></div>
       </div>
     </div>
 
@@ -59,11 +60,11 @@ CREATED BY : ABHIJIT MOHANTY
         <div class="panel-heading">GET BEST MOBILES</div>
         <div class="panel-body">
 			<cfscript>
-			productCall = request.dbOperation.showProductDetailsIndex(25);
+			productCall = request.dbOperation.showImageDetails(25);
 			</cfscript>
 
 		</div>
-        <div class="panel-footer"><a href = "/mindkart/views/utility/products.cfm?CategoryId=1">Buy Now !!</div>
+        <div class="panel-footer"><a href = "/mindkart/views/utility/products.cfm?CategoryId=1">Buy Now !!</a></div>
       </div>
     </div>
   </div>

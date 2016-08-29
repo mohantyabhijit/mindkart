@@ -33,36 +33,48 @@
 					  <div class="row">
 					    <div class="col-sm-4">
 					      <div class="panel panel-primary">
-					        <div class="panel-heading">Galaxy J5 16GB</div>
+					        <div class="panel-heading">
+						        <cfscript>
+						        productNameCall = request.dbOperation.showProductName(20);
+						        </cfscript>
+							</div>
 					        <div class="panel-body">
 								</br>
 								<cfscript>
-								productCall = request.dbOperation.showProductDetailsIndex(20);
+								productCall = request.dbOperation.showImageDetails(20);
 								</cfscript>
 							</div>
-					        <div class="panel-footer">Buy Now !!</div>
+					        <div class="panel-footer"><a href = "/mindkart/views/utility/product-detail.cfm?ProductId=20">Buy Now !!</a></div>
 					      </div>
 					    </div>
 					    <div class="col-sm-4">
 					      <div class="panel panel-danger">
-					        <div class="panel-heading">Galaxy On7 8GB</div>
+					        <div class="panel-heading">
+						         <cfscript>
+						        productNameCall = request.dbOperation.showProductName(22);
+						        </cfscript>
+							</div>
 					        <div class="panel-body"  >
 								<cfscript>
-								productCall = request.dbOperation.showProductDetailsIndex(22);
+								productCall = request.dbOperation.showImageDetails(22);
 								</cfscript>
 							</div>
-					        <div class="panel-footer">Buy Now !!</div>
+					        <div class="panel-footer"><a href = "/mindkart/views/utility/product-detail.cfm?ProductId=22">Buy Now !!</a></div>
 					      </div>
 					    </div>
 					    <div class="col-sm-4">
 					      <div class="panel panel-success">
-					        <div class="panel-heading">Galaxy J7 16GB</div>
+					        <div class="panel-heading">
+						         <cfscript>
+						        productNameCall = request.dbOperation.showProductName(25);
+						        </cfscript>
+							</div>
 					        <div class="panel-body">
 								<cfscript>
-								productCall = request.dbOperation.showProductDetailsIndex(25);
+								productCall = request.dbOperation.showImageDetails(25);
 								</cfscript>
 							</div>
-					        <div class="panel-footer">Buy Now !!</div>
+					        <div class="panel-footer"><a href = "/mindkart/views/utility/product-detail.cfm?ProductId=25">Buy Now !!</a></div>
 					      </div>
 					    </div>
 					  </div>
@@ -72,36 +84,48 @@
 					  <div class="row">
 					    <div class="col-sm-4">
 					      <div class="panel panel-primary">
-					        <div class="panel-heading">Vu  Full HD LED TV</div>
+					        <div class="panel-heading">
+						         <cfscript>
+						        productNameCall = request.dbOperation.showProductName(33);
+						        </cfscript>
+							</div>
 					        <div class="panel-body">
 								</br>
 								<cfscript>
-								productCall = request.dbOperation.showProductDetailsIndex(33);
+								productCall = request.dbOperation.showImageDetails(33);
 								</cfscript>
 							</div>
-					        <div class="panel-footer">Buy Now !!</div>
+					        <div class="panel-footer"><a href = "/mindkart/views/utility/product-detail.cfm?ProductId=33">Buy Now !!</a></div>
 					      </div>
 					    </div>
 					    <div class="col-sm-4">
 					      <div class="panel panel-danger">
-					        <div class="panel-heading">Vu 32 INCH FULL HD LED TV</div>
+					        <div class="panel-heading">
+						         <cfscript>
+						        productNameCall = request.dbOperation.showProductName(36);
+						        </cfscript>
+							</div>
 					        <div class="panel-body"  >
 								<cfscript>
-								productCall = request.dbOperation.showProductDetailsIndex(36);
+								productCall = request.dbOperation.showImageDetails(36);
 								</cfscript>
 							</div>
-					        <div class="panel-footer">Buy Now !!</div>
+					        <div class="panel-footer"><a href = "/mindkart/views/utility/product-detail.cfm?ProductId=36">Buy Now !!</a></div>
 					      </div>
 					    </div>
 					    <div class="col-sm-4">
 					      <div class="panel panel-success">
-					        <div class="panel-heading">Sony 32 INCH FULL HD LED TV</div>
+					        <div class="panel-heading">
+						        <cfscript>
+						        productNameCall = request.dbOperation.showProductName(37);
+						        </cfscript>
+							</div>
 					        <div class="panel-body">
 								<cfscript>
-								productCall = request.dbOperation.showProductDetailsIndex(37);
+								productCall = request.dbOperation.showImageDetails(37);
 								</cfscript>
 							</div>
-					        <div class="panel-footer">Buy Now !!</div>
+					        <div class="panel-footer"><a href = "/mindkart/views/utility/product-detail.cfm?ProductId=37">Buy Now !!</a></div>
 					      </div>
 					    </div>
 					  </div>
@@ -111,36 +135,48 @@
 					  <div class="row">
 					    <div class="col-sm-4">
 					      <div class="panel panel-primary">
-					        <div class="panel-heading">Lenovo IdeaPad 300 Intel Core i7 (6th Gen)</div>
+					        <div class="panel-heading">
+						         <cfscript>
+						        productNameCall = request.dbOperation.showProductName(38);
+						        </cfscript>
+							</div>
 					        <div class="panel-body">
 								</br>
 								<cfscript>
-								productCall = request.dbOperation.showProductDetailsIndex(38);
+								productCall = request.dbOperation.showImageDetails(38);
 								</cfscript>
 							</div>
-					        <div class="panel-footer">Buy Now !!</div>
+					        <div class="panel-footer"><a href = "/mindkart/views/utility/product-detail.cfm?ProductId=38">Buy Now !!</a></div>
 					      </div>
 					    </div>
 					    <div class="col-sm-4">
 					      <div class="panel panel-danger">
-					        <div class="panel-heading">Lenovo Yoga 500 Core i7</div>
+					        <div class="panel-heading">
+						         <cfscript>
+						        productNameCall = request.dbOperation.showProductName(39);
+						        </cfscript>
+							</div>
 					        <div class="panel-body"  >
 								<cfscript>
-								productCall = request.dbOperation.showProductDetailsIndex(39);
+								productCall = request.dbOperation.showImageDetails(39);
 								</cfscript>
 							</div>
-					        <div class="panel-footer">Buy Now !!</div>
+					        <div class="panel-footer"><a href = "/mindkart/views/utility/product-detail.cfm?ProductId=39">Buy Now !!</a></div>
 					      </div>
 					    </div>
 					    <div class="col-sm-4">
 					      <div class="panel panel-success">
-					        <div class="panel-heading">Lenovo Ideapad 100 APU Quad Core A6 </div>
+					        <div class="panel-heading">
+						         <cfscript>
+						        productNameCall = request.dbOperation.showProductName(40);
+						        </cfscript>
+						    </div>
 					        <div class="panel-body">
 								<cfscript>
-								productCall = request.dbOperation.showProductDetailsIndex(40);
+								productCall = request.dbOperation.showImageDetails(40);
 								</cfscript>
 							</div>
-					        <div class="panel-footer">Buy Now !!</div>
+					        <div class="panel-footer"><a href = "/mindkart/views/utility/product-detail.cfm?ProductId=40">Buy Now !!</a></div>
 					      </div>
 					    </div>
 					  </div>

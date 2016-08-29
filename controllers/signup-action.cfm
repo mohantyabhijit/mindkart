@@ -19,9 +19,10 @@
 				dobCall = request.signupValidation.checkDob();
 				errorShowCall = request.signupValidation.showErrors();
 				dbInsertDataCall = request.dbOperation.insertIntoDb();
-				location (url = "/mindkart/views/login.cfm");
+				session.loggedin = true;
 
-		   </cfscript>
+		    </cfscript>
+		    <cflocation url = "/mindkart/index.cfm">
 
 
 		</body>

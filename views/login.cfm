@@ -18,7 +18,6 @@
 				<cfinclude template = "/mindkart/views/layout/header.cfm">
 				<cfinclude template = "/mindkart/views/layout/navbar.cfm">
 
-
 				<form name = "myForm" class = "form-inline" method = "post" action = "/mindkart/controllers/login-action.cfm" >
 					</br></br>
 
@@ -38,13 +37,13 @@
 
 				  <div class="form-group" id="div-submit">
 				    <div class="col-lg-12">
-				      <button type="submit" class="btn btn-primary">Register</button>
+				      <a href="/mindkart/views/signup.cfm" class="btn btn-warning" role="button">Register</a>
 				    </div>
 				  </div>
 
 				  <div class="form-group" id="div-submit">
 				    <div class="col-lg-12">
-				      <button type="submit"  class = "btn btn-primary">Login</button>
+				      <button type="submit"  class = "btn btn-success">Login</button>
 				    </div>
 				  </div>
 					<span >If you do not have an account please register with us</span>

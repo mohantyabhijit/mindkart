@@ -25,7 +25,7 @@
 			</br>
 			<img src = "/mindkart/assets/images/vu.jpeg" alt="productImage" class="img-responsive"  width = "100%">
 		</div>
-        <div class="panel-footer">Buy Now !!</div>
+        <div class="panel-footer">Vu Televisions</div>
       </div>
     </div>
     <div class="col-sm-4">
@@ -34,7 +34,7 @@
         <div class="panel-body"  >
 			<img src = "/mindkart/assets/images/lenovo.jpeg" alt="productImage" class="img-responsive"  width = "100%">
 		</div>
-        <div class="panel-footer">Buy Now !!</div>
+        <div class="panel-footer">Lenovo Computers</div>
       </div>
     </div>
     <div class="col-sm-4">
@@ -43,7 +43,7 @@
         <div class="panel-body">
 			<img src = "/mindkart/assets/images/samsung.jpeg" alt="productImage" class="img-responsive"  width = "100%">
 		</div>
-        <div class="panel-footer">Buy Now !!</div>
+        <div class="panel-footer">Samsung Electronics</div>
       </div>
     </div>
   </div>
