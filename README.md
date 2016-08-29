@@ -1,6 +1,6 @@
 # mindkart
 This is a demo project assigned to me.
-It consists of the folowwing specifications :-
+It consists of the folowing specifications :-
 This will be an e-commerce site, where some products will be there will all its detail information. Some customers will register themselves to the site or can choose the guest customer option to place an order
 
 
