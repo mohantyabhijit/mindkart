@@ -5,5 +5,7 @@ This will be an e-commerce site, where some products will be there will all its 
 
 
 TECHNOLOGIES USED :-
+
 FRONT END - HTML5, CSS, Bootstrap, jQuery
+
 BACK END - Adobe Coldfusion 10
