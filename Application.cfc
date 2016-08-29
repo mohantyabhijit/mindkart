@@ -31,7 +31,7 @@ function onRequestStart()
 	{
 		request.signupValidation = CreateObject ("component","models.server-side-validation");
 		request.dbOperation = CreateObject ("component","models.db-operations");
-
+		session.loggedin = false;
 	}
 
 //function onError ()
