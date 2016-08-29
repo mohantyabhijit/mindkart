@@ -15,6 +15,14 @@
 		<body>
 					<cfinclude template = "/mindkart/views/layout/header.cfm">
 					<cfinclude template = "/mindkart/views/layout/navbar.cfm">
+					<table>
+					<tr class="cartData">
+						<th class="col-xs-3"> Item </th>
+						<th class="col-xs-1"> Quantity </th>
+						<th class="col-xs-1"> Unit Price</th>
+						<th class="col-xs-1"> Total </th>
+					</tr>
+					</table>
 
 
 					<cfinclude template = "/mindkart/views/layout/footer.cfm">

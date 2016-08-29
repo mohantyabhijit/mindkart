@@ -4,12 +4,12 @@
 		<meta charset="utf-8">
   		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<link rel="stylesheet" href = "../assets/css/bootstrap.min.css">
-		<link rel="stylesheet" href = "../assets/css/page-stylesheet.css">
-		<link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">
-		<link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
-		<script type = "text/javascript"  src = "../assets/js/jquery-2.1.3.min.js"></script>
-		<script type = "text/javascript"  src = "../assets/js/validation.js"></script>
+		<link rel="stylesheet" href = "/mindkart/assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href = "/mindkart/assets/css/page-stylesheet.css">
+		<link rel="shortcut icon" href="/mindkart/assets/images/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/mindkart/assets/images/favicon.ico" type="image/x-icon">
+		<script type = "text/javascript"  src = "/mindkart/assets/js/jquery-2.1.3.min.js"></script>
+		<script type = "text/javascript"  src = "/mindkart/assets/js/validation.js"></script>
 		<title>
 			Log In
 		</title>
