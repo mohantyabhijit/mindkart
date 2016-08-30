@@ -49,7 +49,7 @@
 					      <cfif IsDefined ("session.name")>
 						  <ul class="nav navbar-nav navbar-right">
 							  <li><a href="#"><span class="glyphicon glyphicon-user"></span><cfoutput>Hi #session.name#</cfoutput></a></li>
-							  <li><a href="/mindkart/views/logout.cfm"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
+							  <li><a href="/mindkart/controllers/logout-action.cfm"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
 					       	  <li><a href="/mindkart/views/utility/cart.cfm"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
 
 					      </ul>
