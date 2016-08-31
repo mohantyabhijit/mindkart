@@ -12,37 +12,7 @@ CREATED BY : Abhijit Mohanty
 
 //method to validate User Name
 
-function checkUserName()
-{
-	var x = document.getElementById("uname").value;
-	//area to check for special characters
-	var k = x.search(/^\w{6,15}$/);
-	if (k<0)
-		{
-			var message="User name can't contain special characters excluding _";
-		}
-	else 
-		{
-			var message ="";
-		}
 
-	//area to check for proper format
-	if (x == null || x == "") 
-	   	{
-	       	var message="Name must be filled out";
-	        	//return false;
-	   	}
-	else if (x.length>15 || x.length<6)
-	   	{
-	   		var message="User Name Must be between 6-15 characters";
-	   	}
-	else if (x == "password" || x == "username")
-	   	{
-	   		var message="Please Choose Another User Name";
-	   	}
-			    
-	 document.getElementById("unamespan").innerHTML=message;
-}
 
 //method to validate password
 function checkPassword(inputtxt)   

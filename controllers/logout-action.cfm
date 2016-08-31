@@ -10,8 +10,8 @@ CREATED BY : Abhijit Mohanty
  --->
 				<cfset StructClear(session)>
 				<cfset StructClear(cookie)>
-				<cfset session.loggedin = false>
-				<cflocation url = "/mindkart/index.cfm">
+
+				<cflocation url = "/mindkart/index.cfm" addToken = "no">
 
 
 

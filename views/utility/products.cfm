@@ -22,7 +22,9 @@ CREATED BY : Abhijit Mohanty
   			<link rel="icon" href="/mindkart/assets/images/favicon.ico" type="image/x-icon">
 			<cfif #URL.CategoryId# EQ 1>
 			<title>
-				Mobiles
+				<cfoutput>
+					categoryName =
+				</cfoutput>
 			</title>
 			<cfelseif #URL.CategoryId# EQ 2>
 			<title>
@@ -37,29 +39,29 @@ CREATED BY : Abhijit Mohanty
 		<body>
 				<cfinclude template="/mindkart/views/layout/header.cfm">
 				<cfinclude template="/mindkart/views/layout/navbar.cfm">
-				<cfset arguments.catId = #URL.CategoryId#>
+				<cfset variables.catId = #URL.CategoryId#>
 				</br></br>
 
 
 
 			<div class="container">
 					  <div class="row">
-			<cfif arguments.catId GT 0>
+			<cfif variables.catId GT 0>
 
-				<cfset queryToLoop = request.dbOperation.getAllProductIdsFromDb(arguments.catId)>
+				<cfset queryToLoop = request.dbOperation.getAllProductIdsFromDb(variables.catId) />
 					<cfloop query = "queryToLoop">
-
+						<cfset variables.productInfo = request.dbOperation.getProductDetails(queryToLoop.ProductId) />
 						<div class="col-sm-4">
 					      <div class="panel panel-danger">
 					        <div class="panel-heading">
-								<cfscript>
-						        request.dbOperation.showProductName(queryToLoop.ProductId);
-								</cfscript>
+						        <cfset variables.productName = variables.productInfo.ProductName>
+							    <cfoutput>#variables.productName#</cfoutput>
 							</div>
 					        <div class="panel-body"  >
-								<cfscript>
-								request.dbOperation.showImageDetails(queryToLoop.ProductId);
-								</cfscript>
+								<cfset imagePath = variables.productInfo.ImagePath>
+								<cfoutput>
+									<img src = "#imagePath#" alt="#variables.productInfo.ProductName#Image" class="img-responsive"  width = "100%">
+								</cfoutput>
 							</div>
 					        <cfoutput><div class="panel-footer"><a href = "/mindkart/views/utility/product-detail.cfm?ProductId=#queryToLoop.ProductId#">Buy Now !!</a></div></cfoutput>
 					      </div>

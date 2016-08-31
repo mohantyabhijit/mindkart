@@ -22,14 +22,10 @@
 <!--- function to insert details into db after registration --->
 	<cffunction
 				name = "insertIntoDb"
-				access="remote"
-				>
+				access="remote">
 
 					<cfquery
-					name = "pushToDB"
-
-
-					>
+					name = "pushToDB">
 						INSERT INTO UserDetail
 						(
 							FirstName,
@@ -49,128 +45,14 @@
 							'#Form.dob#'
 
 						);
-
-
 					</cfquery>
 					<cfset sessionRotate() />
 					<cfset session.name = "Form.fname" />
 		</cffunction>
-<!--- function to show the image of a product from DB using Product Id --->
-	<cffunction
-				name = "showImageDetails"
-				access = "remote" >
-				<cfargument
-							name = "productId"
-							default = ""
-							type = "numeric">
-				<cfquery
-								name = "showImageFromDb"
-								dataSource = "mindkart">
-								SELECT ImagePath
-								FROM Product
-								WHERE ProductId = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.productId#">
-				</cfquery>
-				<cfoutput query="showImageFromDb">
-					<img src = "#showImageFromDb.ImagePath#" alt="productImage" class="img-responsive"  width = "100%">
-				</cfoutput>
-	</cffunction>
-	<!--- function to show all product details from DB using Product Id --->
-	<cffunction
-				name = "showProductDetails"
-				access = "remote">
-				<cfargument
-							name = "productId"
-							default = ""
-							type = "numeric">
-				<cfquery
-								name = "showProductFromDb"
-								dataSource = "mindkart">
-								SELECT ProductName, Make, Model,ProductDescription,Price
-								FROM Product
-								WHERE ProductId = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.productId#">
-				</cfquery>
-				<cfoutput query="showProductFromDb">
-						<u>Product Name :- </u> #showProductFromDb.ProductName# <br />
-						<u>Manufacturer :- </u> #showProductFromDb.Make# <br />
-						<u>Model :- </u> #showProductFromDb.Model# <br />
-						<u>Product Description </u>:- <br />#showProductFromDb.ProductDescription# <br />
-						<u>Price :-</u> Rs.#showProductFromDb.Price# <br />
-				</cfoutput>
-	</cffunction>
-	<!--- function to get only product name for thumbnails --->
-	<cffunction
-				name = "showProductName"
-				access = "remote">
-				<cfargument
-							name = "productId"
-							default = ""
-							type = "numeric">
-				<cfquery
-								name = "showProductNameFromDb"
-								dataSource = "mindkart">
-								SELECT ProductName
-								FROM Product
-								WHERE ProductId = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.productId#">
-				</cfquery>
-				<cfoutput query="showProductNameFromDb">
-						 #showProductNameFromDb.ProductName# <br />
-				</cfoutput>
-	</cffunction>
-<!--- function to get product name for cart  --->
-	<cffunction
-				name = "getProductName"
-				access = "remote"
-				returnType = "query">
-				<cfargument
-							name = "productId"
-							default = ""
-							type = "numeric">
-				<cfquery
-						name = "getProductNameFromDb">
-						SELECT ProductName
-						FROM Product
-						WHERE ProductId = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.productId#">
-				</cfquery>
-	<cfreturn getProductNameFromDb />
-	</cffunction>
-<!--- function to get product manufacturer for cart  --->
-	<cffunction
-				name = "getProductMake"
-				access = "remote"
-				returnType = "query">
-				<cfargument
-							name = "productId"
-							default = ""
-							type = "numeric">
-				<cfquery
-						name = "getProductMakeFromDb">
-						SELECT Make
-						FROM Product
-						WHERE ProductId = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.productId#">
-				</cfquery>
-	<cfreturn getProductMakeFromDb />
-	</cffunction>
-	<!--- function to get product model for cart  --->
-	<cffunction
-				name = "getProductModel"
-				access = "remote"
-				returnType = "query">
-				<cfargument
-							name = "productId"
-							default = ""
-							type = "numeric">
-				<cfquery
-						name = "getProductModelFromDb">
-						SELECT Model
-						FROM Product
-						WHERE ProductId = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.productId#">
-				</cfquery>
-	<cfreturn getProductModelFromDb />
-	</cffunction>
 
-	<!--- function to get product price for cart  --->
-	<cffunction
-				name = "getProductPrice"
+<!--- function to get product details for cart --->
+<cffunction
+				name = "getProductDetails"
 				access = "remote"
 				returnType = "query">
 				<cfargument
@@ -178,12 +60,12 @@
 							default = ""
 							type = "numeric">
 				<cfquery
-						name = "getProductPriceFromDb">
-						SELECT Price
+						name = "getProductDetailsFromDb">
+						SELECT ProductName, Make, Model, Price,ImagePath,ProductDescription
 						FROM Product
 						WHERE ProductId = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.productId#">
 				</cfquery>
-	<cfreturn getProductPriceFromDb />
+	<cfreturn getProductDetailsFromDb />
 	</cffunction>
 
 <!--- function to store list of product ids under a particular category --->
@@ -209,62 +91,38 @@
 <cffunction
 				name = "getImageOfFirstProductFromDb"
 				access = "remote"
-				returnType = "any">
-				<cfargument
-						name = "categoryId"
-						default=1
-						type = "numeric">
-				<cfquery
-						name = "getImage">
-						SELECT TOP 1 ImagePath
-						FROM Product
-						WHERE CategoryId = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.categoryId#">
-				</cfquery>
-				<cfoutput>
-					<img src = "#getImage.ImagePath#" alt="productImage" class="img-responsive"  width = "100%">
-				</cfoutput>
-
-</cffunction>
-
-
-	<!--- function to get product name and price from db --->
-	<cffunction
-				name = "getAllProductsFromDb"
-				access = "remote"
 				returnType = "query">
 				<cfargument
 						name = "categoryId"
 						default=1
 						type = "numeric">
 				<cfquery
-						name = "getProductDetails">
-						SELECT ProductName, Price
+						name = "getFirstImagePath">
+						SELECT TOP 1 ImagePath
 						FROM Product
 						WHERE CategoryId = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.categoryId#">
 				</cfquery>
-
-	<cfreturn getProductDetails />
-	</cffunction>
+		<cfreturn getFirstImagePath>
+</cffunction>
 
 	<!--- function to check data from db after login and set login variables --->
-		<cffunction access="remote" name = "checkLoginFromDb" returntype = "any">
-				<cfif session.loggedin EQ false>
+		<cffunction access="remote" name = "checkLoginFromDb" returntype = "any" output="true">
+			<cfdump var="in function">
+				<cfif NOT IsDefined ("session.loggedin") OR session.loggedin EQ false>
 
 					<cfquery
-						name = "accessDB"
-						dataSource = "mindkart">
+						name = "accessDB">
 						SELECT FirstName FROM UserDetail
 						WHERE  UserEmail = '#Form.email#'
 						AND Password = '#Form.pwd#'
 	 				</cfquery>
 
 					<cfif accessDB.RecordCount NEQ 0 >
-						<blockquote>
 						<!--- login is now succesful , set CFID as seesion.id --->
 						<cfset sessionRotate() />
 						<cfset session.loggedin = true />
-						<cfset session.name = #accessDb.FirstName# />
-						<cflocation url = "/mindkart/index.cfm?Name=session.name">
+						<cfset session.name = accessDb.FirstName />
+						<cflocation url = "/mindkart/index.cfm" addToken = "no">
 					<cfelse>
 						<blockquote>
 							<h1>
@@ -278,5 +136,6 @@
 						Please try again.You cannot view this page without logging in.
 					</cfoutput>
 				</cfif>
+
 			</cffunction>
 </cfcomponent>

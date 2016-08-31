@@ -42,7 +42,7 @@ CREATED BY : Abhijit Mohanty
 				</br></br>
 
 				<div class="form-group" id = "div-email">
-				  <input type="text" name = "email" class="form-control" id="email" onblur = "checkEmail()" placeholder = "Enter E-Mail Id" maxlength = "50" >
+				  <input type="text" name = "email" class="form-control" id="email" onblur = "checkEmail()" placeholder = "Enter E-Mail Id" maxlength = "50" autofocus>
 				  <span id = "span-email"></span>
 			    </div>
 				  </br></br>

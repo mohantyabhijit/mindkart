@@ -8,7 +8,6 @@ TIME CREATED : 8:11PM
 CREATED BY : Abhijit Mohanty
 ================================================================
  --->
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -25,22 +24,25 @@ CREATED BY : Abhijit Mohanty
 			<cfinclude template = "/mindkart/views/layout/header.cfm">
 			<cfinclude template = "/mindkart/views/layout/navbar.cfm">
 			<br />
-			<cfset arguments.productId = #URL.ProductId#>
-
+			<cfset variables.productId = #URL.ProductId#>
+			<cfset variables.productInfo = request.dbOperation.getProductDetails(variables.productId)>
 				<div class="container" id="productDetails">
 					  <div class="row">
 					    <div class="col-sm-4">
 					      <div class="panel panel-primary">
 					        <div class="panel-heading">
-						        <cfscript>
-							    productNameCall = request.dbOperation.showProductName(arguments.productId);
-								</cfscript>
+							<cfoutput>
+								    <cfset variables.productName = variables.productInfo.ProductName>
+								    #productName#
+							</cfoutput>
 							</div>
 					        <div class="panel-body">
 								</br>
-								<cfscript>
-									productCall = request.dbOperation.showImageDetails(arguments.productId);
-								</cfscript>
+								<cfset productImagePath = variables.productInfo.ImagePath>
+								<cfoutput>
+									<img src = "#productImagePath#" alt="#variables.productInfo.ProductName#Image" class="img-responsive"  width = "100%">
+								</cfoutput>
+
 							</div>
 					        <div class="panel-footer"><button class =" btn btn-success" type = "submit">Proceed to Buy</button></div>
 					      </div>
@@ -49,20 +51,21 @@ CREATED BY : Abhijit Mohanty
 					      <div class="panel panel-danger">
 					        <div class="panel-heading">Product Details</div>
 					        <div class="panel-body"  >
-								<cfscript>
-									productDetailsCall = request.dbOperation.showProductDetails(arguments.productId);
-								</cfscript>
+								<cfoutput>
+									<b><u>Product Name :</u></b> #productName#<br>
+									<b><u>Manufacturer :</u></b>#variables.productInfo.Make#<br>
+									<b><u>Model :</u></b> #variables.productInfo.Model#<br>
+									<b><u>Product Description :</u></b> #variables.productInfo.ProductDescription#<br>
+									<b><u>Price :</u></b>#variables.productInfo.Price#
+								</cfoutput>
 							</div>
-							<div class="panel-footer"><button class =" btn btn-success" id = "addToCartButton"type = "submit" method = "post"  onclick = "addToCart(<cfoutput>#arguments.productId#</cfoutput>)"> Add to Cart</button></div>
+							<div class="panel-footer"><button class =" btn btn-success" id = "addToCartButton"type = "submit" method = "post"  onclick = "addToCart(<cfoutput>#variables.productId#</cfoutput>)"> Add to Cart</button></div>
 							<span id="cartResult"></span>
 					      </div>
 					    </div>
 						</div>
 					</div>
-
-
 			<cfinclude  template="/mindkart/views/layout/footer.cfm">
-
 		</body>
 </html>
 

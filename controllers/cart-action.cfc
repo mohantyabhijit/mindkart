@@ -7,15 +7,16 @@
 component output=false persistent=false cartAction{
 	remote string function addToCart (pId)
 		{
-				session.pid = pId;
-				session.pid = StructNew();
-				session.pid.id = pId;
-				session.pid.name = request.dbOperation.getProductName(pId);
-				session.pid.make = request.dbOperation.getProductMake(pId);
-				session.pid.model = request.dbOperation.getProductModel(pId);
-				session.pid.qty = 1;
-				session.pid.price = request.dbOperation.getProductPrice(pId);
-				ArrayAppend(session.cartInfo,"#session.pid#");
+
+				variables.productDetails = request.dbOperation.getProductDetails(pId);
+				session.cartItem = StructNew();
+				session.cartItem.id = pId;
+				session.cartItem.name = #variables.productDetails.ProductName#;
+				session.cartItem.make = #variables.productDetails.Make#;
+				session.cartItem.model =#variables.productDetails.Model#;
+				session.cartItem.qty = 1;
+				session.cartItem.price = #variables.productDetails.Price#;
+				ArrayAppend(session.cartInfo,"#session.cartItem#");
 				return "Add to Cart Successful";
 		}
 }

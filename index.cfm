@@ -35,23 +35,20 @@ CREATED BY : ABHIJIT MOHANTY
 					      <div class="panel panel-danger">
 					        <div class="panel-heading">
 								<cfoutput>
-									<!--- <cfdump var="#queryToLoop#"><cfabort> --->
 									Get Best #queryToLoopCategory.CategoryName#
 								</cfoutput>
-
-
 							</div>
 					        <div class="panel-body"  >
-								<cfscript>
-								  request.dbOperation.getImageOfFirstProductFromDb(#queryToLoopCategory.CategoryId#);
-								</cfscript>
+								<cfoutput>
+								  <cfset imagePath = request.dbOperation.getImageOfFirstProductFromDb(queryToLoopCategory.CategoryId)>
+								  <img src = "#imagePath.ImagePath#" alt="#queryToLoopCategory.CategoryName#Image" class="img-responsive"  width = "100%">;
+								</cfoutput>
 							</div>
-					         <cfoutput>
-					         <div class="panel-footer"><a href = "/mindkart/views/utility/products.cfm?CategoryId=#queryToLoopCategory.CategoryId#">Buy Now !!</a></div>
-					         </cfoutput>
+						         <cfoutput>
+						         <div class="panel-footer"><a href = "/mindkart/views/utility/products.cfm?CategoryId=#queryToLoopCategory.CategoryId#">Buy Now !!</a></div>
+						         </cfoutput>
 							</div>
 						</div>
-
 					</cfloop>
 			</div>
 		</div>

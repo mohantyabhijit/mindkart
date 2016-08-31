@@ -23,49 +23,27 @@ CREATED BY : Abhijit Mohanty
 		<script type = "text/javascript"  src = "../assets/js/side-menu.js"></script>
 	</head>
 		<body>
+			<cfloop from="1" to="#arrayLen(session.cartInfo)#" index="i">
+			 <cfoutput>
+			    		#session.cartInfo[i].cartItem#<br>
 
-			<cfinclude template="/mindkart/views/layout/header.cfm">
-			<cfinclude template="/mindkart/views/layout/navbar.cfm">
+			</cfoutput>
+					 	 </cfloop>
+			<cfdump var="#session.cartInfo#">
+<!---
+<cfloop from="1" to="#arrayLen(session.cartInfo)#" index="i">
+			 <cfoutput>
+				  <cfset data = session.cartInfo[i]>
+				  <cfloop collection="#data#" item="key">
+			    		#key#:#data[key]# <br>
+			 	 </cfloop>
+			</cfoutput>
+ --->
+
+<!--- </cfloop> --->
 			<cfscript>
-				/*myArray = ArrayNew(1);
-				id = StructNew();
-				id.name = "aBHIJIT";
-				id.age = 12;
-				ArrayAppend (myArray,id);
-				writedump(myArray);abort;*/
-				//hello = ArrayClear (session.pid);
-				//writedump(session.pid);
-				//writedump("#session.cart#");abort;
-				myArray = ArrayNew(1);
-				session.id = StructNew();
-				session.id.name = "hello";
-				session.id.age = 12;
-				ArrayAppend(myArray,"#session.id#");
-				session.id1.name = "asdasd";
-				session.id1.age = 17;
-				ArrayAppend(myArray,"#session.id1#");
-				writedump(myArray);
-			//	writedump(id);
-				/*session.cartInfo = ArrayNew(1);
-				ArrayAppend
-				writedump(session.cartInfo);abort;*/
-				//ArrayClear(session.cartInfo);
-				/*writedump(session.cartInfo);*/
-
-
+				//writedump(session.cartInfo);
 
 			</cfscript>
-			<div id="showCategories">
-
-			<!--- <cfquery
-					name = "showAllCategories"
-					dataSource = "mindkart"
-					>
-					SELECT TOP 7 CategoryName FROM Category
-					WHERE CategoryId > 0;
-			</cfquery>
-			<cfoutput query = "showAllCategories">#showAllCategories.CategoryName##showAllCategories.CategoryName#</cfoutput>
-				<cfinclude template="footer.cfm"> --->
-			</div>
-		</body>
+			</body>
 </html>

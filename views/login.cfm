@@ -34,17 +34,19 @@ CREATED BY : Abhijit Mohanty
 
 				  <div class="form-group" id = "div-email">
 					 <label> Enter Email Id: </label>
-				    <input type="email" class="form-control" name="email" id="email"  onblur = "checkEmail()" placeholder = "Enter E-Mail Id">
+				    <input type="email" class="form-control" name="email" id="email"  onblur = "checkEmail()" placeholder = "Enter E-Mail Id" autofocus>
+				    <span id = "span-email"></span>
 				  </div>
 				  </br></br>
-				  <span id = "span-email"></span>
+
 
 				  <div class="form-group" id = "div-pwd">
 					  <label> Enter Password: </label>
 				    <input type="password" class="form-control" name = "pwd" id="pwd"  onblur = "checkPassword(document.myForm.pwd)" placeholder = "Enter Password">
+				    <span id = "span-pwd"></span>
 				  </div>
 				  </br></br>
-				  <span id = "span-pwd"></span>
+
 
 				  <div class="form-group" id="div-submit">
 				    <div class="col-lg-12">
