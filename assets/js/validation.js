@@ -1,10 +1,10 @@
 /*
 =========================================================================
-FILE NAME : signup_page.js
+FILE NAME : validation.js
 FILE TYPE : JAVASCRIPT FILE
 PURPOSE : ADDS CLIENT SIDE VALIDATION FOR THE REGISTRATION PAGE FORM TAGS
-DATE CREATED : 03/08/2016
-TIME CREATED : 4:02PM 
+DATE CREATED : 22/08/2016
+TIME CREATED : 8:11PM 
 CREATED BY : Abhijit Mohanty
 =========================================================================
 */

@@ -4,18 +4,18 @@
  * @author abhijitm
  * @date 8/29/16
  **/
-component accessors=true output=false persistent=false cartAction{
-	remote function addToCart (string productId)
+component output=false persistent=false cartAction{
+	remote string function addToCart (pId)
 		{
-			try
-				{
-					structInsert( Session.cart, Arguments.productId, 1 );
-					return "Success";
-				}
-			catch( any exception )
-				{
-					return "";
-				}
+				session.pid = pId;
+				session.pid = StructNew();
+				session.pid.id = pId;
+				session.pid.name = request.dbOperation.getProductName(pId);
+				session.pid.make = request.dbOperation.getProductMake(pId);
+				session.pid.model = request.dbOperation.getProductModel(pId);
+				session.pid.qty = 1;
+				session.pid.price = request.dbOperation.getProductPrice(pId);
+				ArrayAppend(session.cartInfo,"#session.pid#");
+				return "Add to Cart Successful";
 		}
-
 }

@@ -1,3 +1,14 @@
+<!---
+===============================================================
+FILE NAME : sellers.cfm
+FILE TYPE : COLD FUSION MARKUP LANGUAGE PAGE
+PURPOSE : CONTAINS CFHTML CODE TO SHOW SERVER SIDE VALIDATION ERRORS
+DATE CREATED : 23/08/2016
+TIME CREATED : 5:11PM
+CREATED BY : Abhijit Mohanty
+================================================================
+ --->
+
 <!DOCTYPE html>
 <html>
 	<head>

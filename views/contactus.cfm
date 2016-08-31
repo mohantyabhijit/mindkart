@@ -1,3 +1,14 @@
+<!---
+===============================================================
+FILE NAME : contactus.cfm
+FILE TYPE : COLD FUSION MARKUP LANGUAGE PAGE
+PURPOSE : CONTAINS CFHTML CODE TO SHOW CONTACT INFORMATION
+DATE CREATED : 28/08/2016
+TIME CREATED : 5:06PM
+CREATED BY : Abhijit Mohanty
+================================================================
+ --->
+
 <!DOCTYPE html>
 <html>
 	<head>

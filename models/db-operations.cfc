@@ -1,11 +1,25 @@
 <!---
   --- db-operations
-  --- -------------
+  --- contains all methods for all db operations
   ---
-  --- author: abhijitm
+  --- author: abhijit mohanty
   --- date:   8/24/16
   --->
 <cfcomponent accessors="true" output="false" persistent="false">
+	<!--- function to get all categories names  --->
+	<cffunction
+				name = "getAllCategoryNamesFromDb"
+				access = "remote"
+				returnType = "query">
+				<cfquery
+						name = "getCategoryNames">
+						SELECT TOP 3 CategoryName, CategoryId
+						FROM Category
+				</cfquery>
+	<cfreturn getCategoryNames />
+	</cffunction>
+
+<!--- function to insert details into db after registration --->
 	<cffunction
 				name = "insertIntoDb"
 				access="remote"
@@ -102,6 +116,75 @@
 						 #showProductNameFromDb.ProductName# <br />
 				</cfoutput>
 	</cffunction>
+<!--- function to get product name for cart  --->
+	<cffunction
+				name = "getProductName"
+				access = "remote"
+				returnType = "query">
+				<cfargument
+							name = "productId"
+							default = ""
+							type = "numeric">
+				<cfquery
+						name = "getProductNameFromDb">
+						SELECT ProductName
+						FROM Product
+						WHERE ProductId = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.productId#">
+				</cfquery>
+	<cfreturn getProductNameFromDb />
+	</cffunction>
+<!--- function to get product manufacturer for cart  --->
+	<cffunction
+				name = "getProductMake"
+				access = "remote"
+				returnType = "query">
+				<cfargument
+							name = "productId"
+							default = ""
+							type = "numeric">
+				<cfquery
+						name = "getProductMakeFromDb">
+						SELECT Make
+						FROM Product
+						WHERE ProductId = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.productId#">
+				</cfquery>
+	<cfreturn getProductMakeFromDb />
+	</cffunction>
+	<!--- function to get product model for cart  --->
+	<cffunction
+				name = "getProductModel"
+				access = "remote"
+				returnType = "query">
+				<cfargument
+							name = "productId"
+							default = ""
+							type = "numeric">
+				<cfquery
+						name = "getProductModelFromDb">
+						SELECT Model
+						FROM Product
+						WHERE ProductId = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.productId#">
+				</cfquery>
+	<cfreturn getProductModelFromDb />
+	</cffunction>
+
+	<!--- function to get product price for cart  --->
+	<cffunction
+				name = "getProductPrice"
+				access = "remote"
+				returnType = "query">
+				<cfargument
+							name = "productId"
+							default = ""
+							type = "numeric">
+				<cfquery
+						name = "getProductPriceFromDb">
+						SELECT Price
+						FROM Product
+						WHERE ProductId = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.productId#">
+				</cfquery>
+	<cfreturn getProductPriceFromDb />
+	</cffunction>
 
 <!--- function to store list of product ids under a particular category --->
 	<cffunction
@@ -122,19 +205,7 @@
 
 	<cfreturn getProductIds />
 	</cffunction>
-	<!--- function to get all catrgories names  --->
-	<cffunction
-				name = "getAllCategoryNamesFromDb"
-				access = "remote"
-				returnType = "query">
-				<cfquery
-						name = "getCategoryNames">
-						SELECT TOP 3 CategoryName, CategoryId
-						FROM Category
-				</cfquery>
-	<cfreturn getCategoryNames />
-	</cffunction>
-<!--- function to get picture of first product from a category --->
+	<!--- function to get picture of first product from a category --->
 <cffunction
 				name = "getImageOfFirstProductFromDb"
 				access = "remote"
@@ -200,7 +271,6 @@
 								User Name or Password Not Correct.</br>
 								Please try again.
 							</h1>
-							<!--- <cflocation url = "/mindkart/views/login.cfm?"> --->
 						</blockquote>
 					</cfif>
 				<cfelse >

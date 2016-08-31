@@ -1,3 +1,14 @@
+<!---
+===============================================================
+FILE NAME : sellers.cfm
+FILE TYPE : COLD FUSION MARKUP LANGUAGE PAGE
+PURPOSE : CONTAINS CFHTML CODE TO SHOW LIST OF SELLERS
+DATE CREATED : 26/08/2016
+TIME CREATED : 6:30PM
+CREATED BY : Abhijit Mohanty
+================================================================
+ --->
+
 <!DOCTYPE html>
 <html>
 	<head>

@@ -23,7 +23,6 @@ CREATED BY : ABHIJIT MOHANTY
   <script type = "text/javascript"  src = "assets/js/side-menu.js"></script>
 </head>
 <body>
-
 <cfinclude template = "views/layout/header.cfm">
 <cfinclude template = "views/layout/navbar.cfm">
 

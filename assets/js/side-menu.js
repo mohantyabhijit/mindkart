@@ -1,3 +1,14 @@
+/*
+=========================================================================
+FILE NAME : side-menu.js
+FILE TYPE : JAVASCRIPT FILE
+PURPOSE : ADDS JS FUNCTIONALITY FOR SIDE MENU FOR CATEGORIES
+DATE CREATED : 22/08/2016
+TIME CREATED : 8:11PM 
+CREATED BY : Abhijit Mohanty
+=========================================================================
+*/
+
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
 function openNav() {
     document.getElementById("mySidenav").style.width = "150px";

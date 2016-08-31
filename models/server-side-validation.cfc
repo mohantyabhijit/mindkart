@@ -1,7 +1,7 @@
 /**
  * Ensures server side validation of Signup Form
  *
- * @author abhijitm
+ * @author abhijit mohanty
  * @date 8/23/16
  **/
 component serverSideValidation

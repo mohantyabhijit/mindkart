@@ -1,3 +1,13 @@
+<!---
+===============================================================
+FILE NAME : header.cfm
+FILE TYPE : COLD FUSION MARKUP LANGUAGE PAGE
+PURPOSE : CONTAINS CFHTML CODE TO SHOW COMMON HEADER
+DATE CREATED : 22/08/2016
+TIME CREATED : 8:11PM
+CREATED BY : Abhijit Mohanty
+================================================================
+ --->
 <!DOCTYPE html>
 <html>
 	<head>

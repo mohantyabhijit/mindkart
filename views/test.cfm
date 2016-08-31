@@ -1,3 +1,15 @@
+<!---
+===============================================================
+FILE NAME : test.cfm
+FILE TYPE : COLD FUSION MARKUP LANGUAGE PAGE
+PURPOSE : CONTAINS CFHTML CODE TO TEST DIFFERENT FUNCTION
+DATE CREATED : 22/08/2016
+TIME CREATED : 8:11PM
+CREATED BY : Abhijit Mohanty
+================================================================
+
+ --->
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,11 +27,34 @@
 			<cfinclude template="/mindkart/views/layout/header.cfm">
 			<cfinclude template="/mindkart/views/layout/navbar.cfm">
 			<cfscript>
-				/*productDetailsCall = request.dbOperation.showProductDetails(20);*/
-				productNameCall = request.dbOperation.showProductName(20);
-				/*productImageCall = request.dbOperation.showImageDetails(20);*/
-			</cfscript>
+				/*myArray = ArrayNew(1);
+				id = StructNew();
+				id.name = "aBHIJIT";
+				id.age = 12;
+				ArrayAppend (myArray,id);
+				writedump(myArray);abort;*/
+				//hello = ArrayClear (session.pid);
+				//writedump(session.pid);
+				//writedump("#session.cart#");abort;
+				myArray = ArrayNew(1);
+				session.id = StructNew();
+				session.id.name = "hello";
+				session.id.age = 12;
+				ArrayAppend(myArray,"#session.id#");
+				session.id1.name = "asdasd";
+				session.id1.age = 17;
+				ArrayAppend(myArray,"#session.id1#");
+				writedump(myArray);
+			//	writedump(id);
+				/*session.cartInfo = ArrayNew(1);
+				ArrayAppend
+				writedump(session.cartInfo);abort;*/
+				//ArrayClear(session.cartInfo);
+				/*writedump(session.cartInfo);*/
 
+
+
+			</cfscript>
 			<div id="showCategories">
 
 			<!--- <cfquery

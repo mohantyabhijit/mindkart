@@ -1,3 +1,14 @@
+<!---
+===============================================================
+FILE NAME : product-detail.cfm
+FILE TYPE : COLD FUSION MARKUP LANGUAGE PAGE
+PURPOSE : CONTAINS CFHTML CODE TO SHOW DETAILS OF A PARTICULAR PRODUCT
+DATE CREATED : 22/08/2016
+TIME CREATED : 8:11PM
+CREATED BY : Abhijit Mohanty
+================================================================
+ --->
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,6 +17,8 @@
 		<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link rel="stylesheet" href = "/mindkart/assets/css/bootstrap.min.css">
 		<link rel="stylesheet" href = "/mindkart/assets/css/page-stylesheet.css">
+		<link rel="shortcut icon" href="/mindkart/assets/images/favicon.ico" type="image/x-icon">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script type = "text/javascript"  src = "/mindkart/assets/js/cart.js"></script>
 	</head>
 		<body>
@@ -40,7 +53,8 @@
 									productDetailsCall = request.dbOperation.showProductDetails(arguments.productId);
 								</cfscript>
 							</div>
-					        <div class="panel-footer"><button class =" btn btn-success" type = "submit" method = "post"  onclick = "addToCart()" >Add to Cart</button></div>
+							<div class="panel-footer"><button class =" btn btn-success" id = "addToCartButton"type = "submit" method = "post"  onclick = "addToCart(<cfoutput>#arguments.productId#</cfoutput>)"> Add to Cart</button></div>
+							<span id="cartResult"></span>
 					      </div>
 					    </div>
 						</div>

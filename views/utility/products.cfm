@@ -1,3 +1,14 @@
+<!---
+===============================================================
+FILE NAME : products.cfm
+FILE TYPE : COLD FUSION MARKUP LANGUAGE PAGE
+PURPOSE : CONTAINS CFHTML CODE TO SHOW LIST OF PRODUCTS UNDER A CATEGORY
+DATE CREATED : 28/08/2016
+TIME CREATED : 5:06PM
+CREATED BY : Abhijit Mohanty
+================================================================
+ --->
+
 <!DOCTYPE html>
 <html>
 	<head>

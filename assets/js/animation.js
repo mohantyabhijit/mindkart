@@ -1,3 +1,13 @@
+/*
+=========================================================================
+FILE NAME : animation.js
+FILE TYPE : JAVASCRIPT FILE
+PURPOSE : AJAX CALL TO SHOW SERVER SIDE ERRORS
+DATE CREATED : 24/08/2016
+TIME CREATED : 1:11PM 
+CREATED BY : Abhijit Mohanty
+=========================================================================
+*/
 
  
 

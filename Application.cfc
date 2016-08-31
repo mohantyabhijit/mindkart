@@ -16,19 +16,18 @@ this.sessionManagement = true;
 
 function onApplicationStart()
 	{
-
 		return true;
 	}
 function onSessionStart()
 	{
 			session.loggedin = false;
 			session.name = "";
+			session.cartInfo = ArrayNew(1);
 	}
 function onRequestStart()
 	{
 		request.signupValidation = CreateObject ("component","models.server-side-validation");
 		request.dbOperation = CreateObject ("component","models.db-operations");
-
 	}
 function onRequestEnd() {}
 

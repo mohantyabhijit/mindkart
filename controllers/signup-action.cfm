@@ -1,4 +1,13 @@
-
+<!---
+===============================================================
+FILE NAME : signup-action.cfm
+FILE TYPE : COLD FUSION MARKUP LANGUAGE PAGE
+PURPOSE : CONTAINS CODE TO CALL ALL SIGNUP METHODS
+DATE CREATED : 23/08/2016
+TIME CREATED : 11:25PM
+CREATED BY : Abhijit Mohanty
+================================================================
+ --->
 				<cfscript>
 					initCall = request.signupValidation.init();
 					emailCall = request.signupValidation.checkEmail();
