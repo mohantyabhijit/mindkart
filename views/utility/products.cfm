@@ -20,30 +20,21 @@ CREATED BY : Abhijit Mohanty
 			<link rel="stylesheet" href = "/mindkart/assets/css/page-stylesheet.css">
 			<link rel="shortcut icon" href="/mindkart/assets/images/favicon.ico" type="image/x-icon">
   			<link rel="icon" href="/mindkart/assets/images/favicon.ico" type="image/x-icon">
-			<cfif #URL.CategoryId# EQ 1>
-			<title>
-				<cfoutput>
-					categoryName =
-				</cfoutput>
-			</title>
-			<cfelseif #URL.CategoryId# EQ 2>
-			<title>
-				Televisions
-			</title>
-			<cfelseif #URL.CategoryId# EQ 3>
-			<title>
-				Laptops
-			</title>
-			</cfif>
+			<cfset variables.catId = #URL.CategoryId#>
+			<cfset variables.CategoryName = request.dbOperation.getCategoryNameFromDb(variables.catId) />
+
+			<cfoutput>
+				<title>
+					#variables.CategoryName#
+				</title>
+			</cfoutput>
+
 	</head>
 		<body>
 				<cfinclude template="/mindkart/views/layout/header.cfm">
 				<cfinclude template="/mindkart/views/layout/navbar.cfm">
-				<cfset variables.catId = #URL.CategoryId#>
+
 				</br></br>
-
-
-
 			<div class="container">
 					  <div class="row">
 			<cfif variables.catId GT 0>
@@ -69,10 +60,6 @@ CREATED BY : Abhijit Mohanty
 					</cfloop>
 					</div>
 				</div>
-
-
-
-
 
 				<cfinclude template="/mindkart/views/layout/footer.cfm">
 			</cfif>

@@ -24,18 +24,15 @@ CREATED BY : Abhijit Mohanty
 		<script type = "text/javascript"  src = "/mindkart/assets/js/side-menu.js"></script>
 	</head>
 		<body>
-			<!--- <cfdump var="#session.loggedin#"><cfabort> --->
-			<!--- <cfdump var="#session.name#"><cfabort> --->
 
 			<div id = "mySidenav" class = "sidenav">
   				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
-			  	  <a id = "mobiles" name = "mobiles" href = "/mindkart/views/utility/products.cfm?CategoryId=1" onclick = "getCategoryProduct(1)"><strong>Mobiles</strong></a>
-				  <a id = "tvs" name = "tvs" href = "/mindkart/views/utility/products.cfm?CategoryId=2" onclick = "getCategoryProduct(2)"><strong>Televisions</strong></a>
-				  <a id = "laptops" name = "laptops" href = "/mindkart/views/utility/products.cfm?CategoryId=3" onclick = "getCategoryProduct(3)"><strong>Laptops</strong></a>
-				  <!--- <a id = "cameras" name = "cameras" href = "/mindkart/views/utility/products.cfm?CategoryId=4" onclick = "getCategoryProduct(4)">Cameras</a>
-				  <a id = "home" name = "home" href = "/mindkart/views/utility/products.cfm?CategoryId=5" onclick = "getCategoryProduct(5)">Home & Furniture</a>
-				  <a id = "books" name = "books" href = "/mindkart/views/utility/products.cfm?CategoryId=6" onclick = "getCategoryProduct(6)">Books</a>
-				  <a id = "clothing" name = "clothing" href = "/mindkart/views/utility/products.cfm?CategoryId=7" onclick = "getCategoryProduct(7)">Clothing</a> --->
+			  	 <cfset queryToLoopCategory = request.dbOperation.getAllCategoryNamesFromDb() />
+					<cfloop query = "queryToLoopCategory">
+						<cfoutput>
+							<a id = "#queryToLoopCategory.CategoryName#" name = "#queryToLoopCategory.CategoryName#" href = "/mindkart/views/utility/products.cfm?CategoryId=#queryToLoopCategory.CategoryId#" onclick = "getCategoryProduct(#queryToLoopCategory.CategoryId#)"><strong>#queryToLoopCategory.CategoryName#</strong></a>
+						</cfoutput>
+					</cfloop>
 				</div>
 			<div id="navbar">
 				<nav class="navbar navbar-inverse">

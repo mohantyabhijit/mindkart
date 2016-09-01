@@ -32,10 +32,10 @@ CREATED BY : Abhijit Mohanty
 			<cfinclude template = "/mindkart/views/layout/navbar.cfm">
 
 			<h1>Come Onboard</h1>
-			<!--- <div id = div-error>
-				<!--- <button id="errorButton" class = "btn btn-danger" onclick = "errorData()" name = "errorShow" >Errors</button> --->
+			<div id = div-error>
+				<button id="errorButton" class = "btn btn-danger" onclick = "errorData()" name = "errorShow" >Errors</button>
 				<p id = "showResult"></p>
-			</div> --->
+			</div>
 
 
 			<form name="myForm"   class = "form-inline" method="post" action="/mindkart/controllers/signup-action.cfm" >

@@ -19,6 +19,24 @@
 	<cfreturn getCategoryNames />
 	</cffunction>
 
+	<!--- function to get category name according to category id  --->
+	<cffunction
+				name = "getCategoryNameFromDb"
+				access = "remote"
+				returnType = "string">
+				<cfargument
+							name = "categoryId"
+							default = 1
+							type = "numeric">
+				<cfquery
+						name = "getCategoryName">
+						SELECT CategoryName
+						FROM Category
+						WHERE CategoryId = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.categoryId#">
+				</cfquery>
+	<cfreturn #getCategoryName.CategoryName# />
+	</cffunction>
+
 <!--- function to insert details into db after registration --->
 	<cffunction
 				name = "insertIntoDb"
