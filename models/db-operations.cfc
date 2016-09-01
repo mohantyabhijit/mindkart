@@ -50,8 +50,8 @@
 							LastName,
 							UserEmail,
 							UserPhoneNo,
-							Password,
-							Dob
+							Password
+
 						)
 						VALUES
 						(
@@ -59,13 +59,11 @@
 							'#Form.lname#',
 							'#Form.email#',
 							'#Form.phno#',
-							'#Form.pwd#',
-							'#Form.dob#'
+							'#Form.pwd#'
 
 						);
 					</cfquery>
-					<cfset sessionRotate() />
-					<cfset session.name = "Form.fname" />
+
 		</cffunction>
 
 <!--- function to get product details for cart --->
@@ -124,7 +122,7 @@
 </cffunction>
 
 	<!--- function to check data from db after login and set login variables --->
-		<cffunction access="remote" name = "checkLoginFromDb" returntype = "any" output="true">
+		<cffunction access="remote" name = "checkLoginFromDb" returntype = "any" output="false">
 			<cfdump var="in function">
 				<cfif NOT IsDefined ("session.loggedin") OR session.loggedin EQ false>
 
@@ -132,7 +130,7 @@
 						name = "accessDB">
 						SELECT FirstName FROM UserDetail
 						WHERE  UserEmail = '#Form.email#'
-						AND Password = '#Form.pwd#'
+						AND Password = <cfqueryparam cfsqltype="cf_sql_varchar" value="#Form.pwd#">
 	 				</cfquery>
 
 					<cfif accessDB.RecordCount NEQ 0 >

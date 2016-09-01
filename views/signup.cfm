@@ -30,11 +30,20 @@ CREATED BY : Abhijit Mohanty
 		<body>
 			<cfinclude template = "/mindkart/views/layout/header.cfm">
 			<cfinclude template = "/mindkart/views/layout/navbar.cfm">
+			<cfparam name = "URL.Response" default="">
 
 			<h1>Come Onboard</h1>
 			<div id = div-error>
-				<button id="errorButton" class = "btn btn-danger" onclick = "errorData()" name = "errorShow" >Errors</button>
-				<p id = "showResult"></p>
+			<!--- <button id="errorButton" class = "btn btn-danger" onclick = "errorData()" name = "errorShow" >Errors</button> --->
+			 	<cfif URL.Response EQ "Errors">
+				<span id = "showResult">
+					<cfloop index="error" list="#session.showErrors#" delimiters=','>
+						<cfoutput>#error#</cfoutput> <br />
+					</cfloop>
+				</span>
+				<cfelse>
+				<p></p>
+				</cfif>
 			</div>
 
 
@@ -67,15 +76,10 @@ CREATED BY : Abhijit Mohanty
 				    <span id = "span-lname"></span>
 				</div>
 				</br></br>
-				<div class="form-group" id = "div-ph">
-				    <input type="text" class="form-control" name = "phno" id="ph" placeholder="Enter Phone Number" maxlength = "10" onblur = "checkPh()" = "" >
-				    <span id = "span-ph"></span>
+				<div class="form-group" id = "div-phno">
+				    <input type="text" class="form-control" name = "phno" id="phno" placeholder="Enter Phone Number" maxlength = "10" onblur = "checkPh()" = "" >
+				    <span id = "span-phno"></span>
 				</div>
-				<div class="form-group" id = "div-dob">
-				    <input type="date" class="form-control" name = "dob" id="dob" placeholder="Birth Date dd/mm/yyyy" onblur = "checkDOB()" = "" >
-				    <span id = "span-dob"></span>
-				</div>
-
 				</div>
 				</br></br>
 				<div class="form-group" id="div-submit">

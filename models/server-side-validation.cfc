@@ -7,13 +7,13 @@
 component serverSideValidation
 {
 		//method to intialise error message
-		public void function init()
+		remote void function init()
 		{
 			Variables.errorMessage = "";
 
 		}
 		//method to check email
-		public string function checkEmail()
+		remote void function checkEmail()
 		{
 			if( REFind('^[a-z][\w\.]*@\w+(\.\w{2,3}){1,2}$', Form.email) EQ 0 )
 			Variables.errorMessage = ListAppend(Variables.errorMessage, "Please enter a valid email address.", '/');
@@ -30,7 +30,7 @@ component serverSideValidation
 		}
 
 		//method to validate password
-		public string function checkPassword(inputtxt)
+		remote void function checkPassword(inputtxt)
 		{
 
 			if ( Len(Form.pwd) == 0|| Form.pwd == "")
@@ -55,7 +55,7 @@ component serverSideValidation
 				}
 			else
 				{
-					Variables.errorMessage = ListAppend(Variables.errorMessage,"adadasd",",");
+					Variables.errorMessage = ListAppend(Variables.errorMessage,"",",");
 
 
 				}
@@ -65,7 +65,7 @@ component serverSideValidation
 		}
 
 		//method to check if both passwords are same or not
-		public string function checkRetypePassword()
+		remote void function checkRetypePassword()
 		{
 
 			if ( Len(Form.repwd) EQ 0 || Form.repwd EQ "" )
@@ -91,7 +91,7 @@ component serverSideValidation
 
 		//method to check name is only alphabets
 
-		public string function checkFirstName()
+		remote void function checkFirstName()
 		{
 		   //first name should contain only alphabets
 
@@ -118,7 +118,7 @@ component serverSideValidation
 		}
 
 		//method to check last name is only alphabets
-		public string function checkLastName()
+		remote void function checkLastName()
 		{
 		   //first name should contain only alphabets
 
@@ -145,7 +145,7 @@ component serverSideValidation
 
 		}
 		// method to check phone number is only digits
-		public string function checkPhNo()
+		remote void function checkPhNo()
 		{
 			//phone number must be of 10 digits
 			//phone number should not contain any alphabets
@@ -172,7 +172,7 @@ component serverSideValidation
 
 		}
 		//method to check Address Line
-		public string function checkAddress()
+		remote void function checkAddress()
 		{
 			if (  Form.addr EQ "" )
 			  	{
@@ -185,7 +185,7 @@ component serverSideValidation
 
 		}
 		//method to check Country
-		public string function checkCountry()
+		remote void function checkCountry()
 		{
 			if (  Form.country EQ "" )
 			  	{
@@ -198,7 +198,7 @@ component serverSideValidation
 
 		}
 		//method to check State
-		public string function checkState()
+		remote void function checkState()
 		{
 			if (  Form.state EQ "" )
 			  	{
@@ -211,7 +211,7 @@ component serverSideValidation
 
 		}
 		//method to check city
-		public string function checkCity()
+		remote void function checkCity()
 		{
 			if (  Form.city EQ "" )
 			  	{
@@ -227,7 +227,7 @@ component serverSideValidation
 
 
 		//method to check PIN
-		public string function checkPin()
+		remote void function checkPin()
 		{
 
 
@@ -246,37 +246,22 @@ component serverSideValidation
 
 
 		}
-
-
-
-		//method to check date of birth field
-		public string function checkDob()
-		{
-			if( Len(Form.dob) NEQ 10 OR Mid(Form.doB, 3, 1) NEQ '/' OR Mid(Form.doB, 6, 1) NEQ '/' )
-				{
-					Variables.errorMessage = ListAppend(Variables.errorMessage, "Please enter the date in the specified format only.", ',');
-				}
-			if (REFind ("\d",Form.dob) EQ 0)
-				{
-					Variables.errorMessage = ListAppend(Variables.errorMessage, "Please enter date using digits only", ',');
-				}
-			if ( Form.dob  EQ "" )
-			   	{
-					Variables.errorMessage = ListAppend(Variables.errorMessage, "Date of Birth field cannot be blank", ',');
-			   	}
-			else
-			  	{
-					Variables.errorMessage = ListAppend(Variables.errorMessage, "", ',');
-			  	}
-
-
-		}
-
-
-			public string function showErrors()
+			remote string function showErrors()
 			{
 				session.showErrors = "";
 				session.showErrors = Variables.errorMessage;
+				if ( Len( session.showErrors ) > 1 )
+					{
+						return "errors";
+
+					}
+				else
+					{
+						return "success";
+						//location (url = "/mindkart/views/signup.cfm?Response=Success", addToken = "no");
+					}
+
+
 			}
 
 

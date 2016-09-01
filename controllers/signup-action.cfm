@@ -9,21 +9,31 @@ CREATED BY : Abhijit Mohanty
 ================================================================
  --->
 				<cfscript>
-					initCall = request.signupValidation.init();
-					emailCall = request.signupValidation.checkEmail();
-					passwordCall = request.signupValidation.checkPassword();
-					retypePasswordCall = request.signupValidation.checkRetypePassword();
-					fnameCall = request.signupValidation.checkFirstName();
-					lnameCall = request.signupValidation.checkLastName();
-					phnoCall = request.signupValidation.checkPhNo();
-					dobCall = request.signupValidation.checkDob();
-					errorShowCall = request.signupValidation.showErrors();
-					dbInsertDataCall = request.dbOperation.insertIntoDb();
-					session.loggedin = true;
+					request.signupValidation.init();
+					request.signupValidation.checkEmail();
+					request.signupValidation.checkPassword();
+					request.signupValidation.checkRetypePassword();
+					request.signupValidation.checkFirstName();
+					request.signupValidation.checkLastName();
+					request.signupValidation.checkPhNo();
 
+					variables.errorShowCall = request.signupValidation.showErrors();
 
-			    </cfscript>
-			    <cflocation url = "/mindkart/index.cfm">
+					if (#variables.errorShowCall# == "errors")
+						{
+							location (url = "/mindkart/views/signup.cfm?Response=Errors" , addToken = "no" );
+						}
+					else if (errorShowCall == "success")
+						{
+							session.loggedin = true;
+							sessionRotate();
+							session.name = "#Form.fname#";
+							dbInsertDataCall = request.dbOperation.insertIntoDb();
+							location (url = "/mindkart/index.cfm" , addToken = "no" );
+						}
+				</cfscript>
+>
+
 
 
 

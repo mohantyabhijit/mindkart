@@ -63,6 +63,7 @@ CREATED BY : Abhijit Mohanty
 					      </ul>
 					      <cfelse>
 					      <ul class="nav navbar-nav navbar-right">
+						      <li><a href="#"><span class="glyphicon "></span>You Are Now A Guest User</a></li>
 					       	  <li><a href="/mindkart/views/login.cfm"><span class="glyphicon glyphicon-user"></span>Login</a></li>
 							  <li><a href="/mindkart/views/signup.cfm"><span class="glyphicon glyphicon-user"></span>Register</a></li>
 					       	  <li><a href="/mindkart/views/utility/cart.cfm"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>

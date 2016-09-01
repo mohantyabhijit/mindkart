@@ -17,53 +17,53 @@ CREATED BY : Abhijit Mohanty
 //method to validate password
 function checkPassword(inputtxt)   
 {   
-	var x = document.getElementById("pwd").value;
-	var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,8}$/;
+	var passwordErrorMessage = "";
+	var passwordValue = document.getElementById("pwd").value;
+	var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,8}$/;
   	
-	if (inputtxt.value.match(passw))   
+	if (inputtxt.value.match(passwordRegex))   
 		{   
-			var message = " ";
-				  
+			passwordErrorMessage = " ";  
 		}  
 	else 
 		{   
-			var message ="Use Alphanumeric Password with 1 uppercase";  
-				  
+			passwordErrorMessage ="Use Alphanumeric Password with 1 uppercase";				  
 		}
-	if ( x.length > 8 || x.length <5 )
+	if ( passwordValue.length > 8 || passwordValue.length <5 )
 		{
-			var message = "Password must be 5-8 characters."
+			passwordErrorMessage = "Password must be 5-8 characters."
 		}
-	if (x == null || x == "")
+	if ( passwordValue == null || passwordValue == "")
 		{
-			var message = "Password Field Cannot be blank.";
+			passwordErrorMessage = "Password Field Cannot be blank.";
 		}
 		
-		document.getElementById("span-pwd").innerHTML=message;
+		document.getElementById("span-pwd").innerHTML=passwordErrorMessage;
 }  
 		
 //method to check if both passwords are same or not
 function checkRetypePassword()
 {
-	var x = document.getElementById("pwd").value;
-	var y = document.getElementById("repwd").value;
-	if ( y == null || y == "" )
+	var passwordValue = document.getElementById("pwd").value;
+	var retypePasswordValue = document.getElementById("repwd").value;
+	var retyePasswordErrorMessage = "";
+	if ( retypePasswordValue == null || retypePasswordValue == "" )
 		{
-			var message = "This field cannot be blank";
+			var retyePasswordErrorMessage = "This field cannot be blank";
 		}
 
-	else if (x != y)
+	else if (passwordValue != retypePasswordValue)
 		{
-			var message = "Passwords Do Not Match. Try Again.";
+			var retyePasswordErrorMessage = "Passwords Do Not Match. Try Again.";
 		}
 		
-	else  if ( x == y)
+	else  if ( passwordValue == retypePasswordValue)
 		{
-			var message="";
+			var retyePasswordErrorMessage="";
 		}
 	
 	
-	document.getElementById("span-repwd").innerHTML=message;
+	document.getElementById("span-repwd").innerHTML=retyePasswordErrorMessage;
 }
 
 //method to check name is only alphabets
@@ -71,196 +71,164 @@ function checkRetypePassword()
 function checkFirstName(inputtxt)  
 {  
    //first name should contain only alphabets
-	var x = document.getElementById("fname").value;
-	var letters = /^[A-Za-z]+$/;  
-	if (inputtxt.value.match(letters))  
+	var firstNameValue = document.getElementById("fname").value;
+	var fNameRegex = /^[A-Za-z]+$/;  
+	var fNameErrorMessage = "";
+	if (inputtxt.value.match(fNameRegex))  
 		{  
-			var message=" ";
+			fNameErrorMessage=" ";
 		}  
 	else  
 	    {  
-			var message="Should Contain only Alphabets"; 
+			fNameErrorMessage="Should Contain only Alphabets"; 
 	    }  
-	if ( x == null || x == "")
+	if ( firstNameValue == null || firstNameValue == "")
 	   	{
-	   		var message = "This field cannot be blank.";
+	   		fNameErrorMessage = "This field cannot be blank.";
 	   	}
 	else 
 		{
-			var message = " ";
+			fNameErrorMessage = " ";
 		}	
-		document.getElementById("span-fname").innerHTML=message;
+		document.getElementById("span-fname").innerHTML=fNameErrorMessage;
 }  
 
-//method to check last name is only alphabets
-function checkLastName(inputtxt)  
+function checkFirstName(inputtxt)  
 {  
-	var letters = /^[A-Za-z]+$/;
-	var x = document.getElementById("lname").value;
-	if ( x == null || x =="")
-		{
-			var message = "This field cannot be blank";
-		}
-	else if( inputtxt.value.match(letters) )  
-   		{  
-			var message=" "; 
-   		}  
+   //last name should contain only alphabets
+	var lastNameValue = document.getElementById("fname").value;
+	var lNameRegex = /^[A-Za-z]+$/;  
+	var lNameErrorMessage = "";
+	if (inputtxt.value.match(lNameRegex))  
+		{  
+			lNameErrorMessage=" ";
+		}  
 	else  
 	    {  
-			var message="Should Contain only Alphabets"; 
+			lNameErrorMessage="Should Contain only Alphabets"; 
 	    }  
-  
-	document.getElementById("span-lname").innerHTML=message;
+	if ( lastNameValue == null || lastNameValue == "")
+	   	{
+	   		lNameErrorMessage = "This field cannot be blank.";
+	   	}
+	else 
+		{
+			lNameErrorMessage = " ";
+		}	
+		document.getElementById("span-lname").innerHTML=lNameErrorMessage;
 }  
+  
 //method to check Address Line 1
 function checkAddress()
 {
-	var x = document.getElementById("addr").value;
-	if ( x == null || x =="" )
+	var addressValue = document.getElementById("addr").value;
+	var addressErrorMessage = "";
+	if ( addressValue == null || addressValue == "" )
 	  	{
-			var message = "This field cannot be blank";
+			addressErrorMessage = "This field cannot be blank";
 	  	}
 	else 
 		{
-			var message = " ";
+			addressErrorMessage= " ";
 		}
-	document.getElementById("span-addr").innerHTML = message;
+	document.getElementById("span-addr").innerHTML = addressErrorMessage;
 }
 
 //method to check Country field
 function checkCountry()
 {
-	var x = document.getElementById("country").value;
-	if ( x == null || x =="" )
+	var countryValue = document.getElementById("country").value;
+	var countryErrorMessage = "";
+	if ( countryValue == null || countryValue == "" )
 	   	{
-			var message = "This field cannot be blank";
+			countryErrorMessage = "This field cannot be blank";
 	   	}
 	else 
 		{
-			var message = " ";
+			countryErrorMessage = " ";
 		}
-	document.getElementById("span-country").innerHTML = message;
+	document.getElementById("span-country").innerHTML = countryErrorMessage;
 }
 //method to check City field
 function checkCity()
 {
-	var x = document.getElementById("city").value;
-	if ( x == null || x =="" )
+	var cityValue = document.getElementById("city").value;
+	var cityErrorMessage = "";
+	if ( cityValue == null || cityValue == "" )
 	   	{
-			var message = "This field cannot be blank";
+			cityErrorMessage = "This field cannot be blank";
 	   	}
 	else 
 		{
-			var message = " ";
+			cityErrorMessage = " ";
 		}
-	document.getElementById("span-city").innerHTML = message;
+	document.getElementById("span-city").innerHTML = cityErrorMessage;
 }
 
 //method to check State field
 function checkState()
 {
-	var x = document.getElementById("state").value;
-	if ( x == null || x =="" )
-		{
-			var message = "This field cannot be blank";
-		}
+	var stateValue = document.getElementById("state").value;
+	var stateErrorMessage = "";
+	if ( stateValue == null || stateValue == "" )
+	   	{
+			stateErrorMessage = "This field cannot be blank";
+	   	}
 	else 
 		{
-			var message = " ";
+			stateErrorMessage = " ";
 		}
-	document.getElementById("span-state").innerHTML = message;
+	document.getElementById("span-state").innerHTML = stateErrorMessage;
 }
 
 //method to check PIN
 function checkPin()
 {
-	var x = document.getElementById("pin").value;
-	var check = x.search("^[0-9]{6}$");
-	if ( x == null || x == "")
+	var pinValue = document.getElementById("pin").value;
+	var pinErrorMessage = "";
+	var checkPin = pinValue.search("^[0-9]{6}$");
+	if ( pinValue == null || pinValue == "")
 		{
-			var message = "This field cannot be blank.";
+			pinErrorMessage = "This field cannot be blank.";
 		}
-	else if (check < 0)
+	else if (checkPin < 0)
 		{
-			var message = "Should contain only numbers 0-9.(6 digits)";
+			pinErrorMessage = "Should contain only numbers 0-9.(6 digits)";
 		}
-	else if (check>0)
+	else if (checkPin>0)
 		{
-			var message =" ";
+			pinErrorMessage =" ";
 		}
 	else 
 		{
-			var message = " ";
+			pinErrorMessage = " ";
 		}
 	
-	document.getElementById("span-pin").innerHTML=message;
+	document.getElementById("span-pin").innerHTML = pinErrorMessage;
 }
 //method to check Email field
 function checkEmail()
 {
 	
-	var x = document.getElementById("email").value;
-	var atpos = x.indexOf("@");
-	var dotpos = x.lastIndexOf(".");
-	if (atpos<1 || dotpos < atpos+2 || dotpos+2 >= x.length ) 
+	var emailValue = document.getElementById("email").value;
+	var atPosition = emailValue.indexOf("@");
+	var dotPosition = emailValue.lastIndexOf(".");
+	var emailErrorMessage = "";
+	if (atPosition<1 || dotPosition < atPosition+2 || dotPosition+2 >= emailValue.length ) 
 		{
-			var message = "Not a valid e-mail address";
+			emailErrorMessage = "Not a valid e-mail address";
 	    }
 	else 
 		{
-			var message = " ";
+			emailErrorMessage = " ";
 		}
 	var y = document.getElementById("email").value;
-	if ( y == null || y =="" )
+	if ( emailValue == null || emailValue == "" )
 		{
-			var message = "This field cannot be blank";
+			emailErrorMessage = "This field cannot be blank";
 		}
 
-	document.getElementById("span-email").innerHTML = message;
-}
-//method to check Company field
-function checkCompany()
-{
-	var x = document.getElementById("company").value;
-	if ( x == null || x =="" )
-	   	{
-			var message = "This field cannot be blank";
-	   	}
-	else 
-		{
-			var message = " ";
-		}
-	document.getElementById("companyspan").innerHTML = message;
-}
-//method to check date of birth field 
-function checkDOB()
-{
-	var x = document.getElementById("dob").value;
-	
-	if ( x == null || x =="" )
-	   	{
-			var message = "Date of Birth field cannot be blank";
-	   	}
-	else 
-	  	{
-			var message = " ";
-	  	}
-	
-	document.getElementById("span-dob").innerHTML = message;
-}
-//method to check occupation field
-function checkOccupation()
-{
-	var x = document.getElementById("occupation").value;
-	if ( x == null || x =="" )
-	   	{
-			var message = "This field cannot be blank";
-	   	}
-	else 
-		{
-			var message = " ";
-		}
-	document.getElementById("occupationspan").innerHTML = message;
+	document.getElementById("span-email").innerHTML = emailErrorMessage;
 }
 
 // method to check phone number is only digits
@@ -268,26 +236,27 @@ function checkPhNo()
 {
 	//phone number must be of 10 digits
 	//phone number should not contain any alphabets
-	var x = document.getElementById("phno").value;
-	var check = x.search("^[0-9]{10}$");
-	if ( x == null || x == "")
+	var phnoValue = document.getElementById("phno").value;
+	var checkPhNo = phnoValue.search("^[0-9]{10}$");
+	var phnoErrorMessage = "";
+	if ( phnoValue == null || phnoValue == "")
 		{
-			var message = "This field cannot be blank.";
+			phnoErrorMessage = " Phone number field cannot be blank.";
 		}
-	else if (check < 0)
+	else if (checkPhNo < 0)
 		{
-			var message = "Should contain only numbers 0-9.(10 digits)";
+			phnoErrorMessage = "Should contain only numbers 0-9.(10 digits)";
 		}
-	else if (check>0)
+	else if (checkPhNo>0)
 		{
-			var message =" ";
+			phnoErrorMessage =" ";
 		}
 	else 
 		{
-			var message = " ";
+			phnoErrorMessage = " ";
 		}
 	
-	document.getElementById("span-phno").innerHTML=message;
+	document.getElementById("span-phno").innerHTML = phnoErrorMessage;
 }
 
 function goBack()
