@@ -28,7 +28,15 @@ CREATED BY : Abhijit Mohanty
 		<body>
 				<cfinclude template = "/mindkart/views/layout/header.cfm">
 				<cfinclude template = "/mindkart/views/layout/navbar.cfm">
+				<cfparam name = "URL.Response" default="">
 
+				<cfif URL.Response EQ "Error">
+				<span id = "showLoginResult">
+					<h5>Sorry Your Username or Password is Incorrect. Please Try Again.</h5>
+				</span>
+				<cfelse>
+				<p></p>
+				</cfif>
 				<form name = "myForm" class = "form-inline" method = "post" action = "/mindkart/controllers/login-action.cfm" >
 					</br></br>
 

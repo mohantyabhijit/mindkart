@@ -41,16 +41,18 @@
 	<cffunction
 				name = "insertIntoDb"
 				access="remote">
-
+				<cfset variables.salt = Hash( GenerateSecretKey("AES"), "SHA-512" )>
+				<cfset variables.hashPassword = Hash( Form.pwd & variables.salt, "SHA-512" )>
 					<cfquery
-					name = "pushToDB">
+							name = "pushToDB">
 						INSERT INTO UserDetail
 						(
 							FirstName,
 							LastName,
 							UserEmail,
 							UserPhoneNo,
-							Password
+							HashPassword,
+							Salt
 
 						)
 						VALUES
@@ -59,7 +61,9 @@
 							'#Form.lname#',
 							'#Form.email#',
 							'#Form.phno#',
-							'#Form.pwd#'
+							'#variables.hashPassword#',
+							'#variables.salt#'
+
 
 						);
 					</cfquery>
@@ -122,36 +126,44 @@
 </cffunction>
 
 	<!--- function to check data from db after login and set login variables --->
-		<cffunction access="remote" name = "checkLoginFromDb" returntype = "any" output="false">
-			<cfdump var="in function">
+		<cffunction access="remote" name = "checkLoginFromDb" returntype = "boolean" output="false">
+
 				<cfif NOT IsDefined ("session.loggedin") OR session.loggedin EQ false>
 
 					<cfquery
 						name = "accessDB">
-						SELECT FirstName FROM UserDetail
-						WHERE  UserEmail = '#Form.email#'
-						AND Password = <cfqueryparam cfsqltype="cf_sql_varchar" value="#Form.pwd#">
+						SELECT FirstName , UserId, HashPassword, Salt
+						FROM UserDetail
+						WHERE  UserEmail = <cfqueryparam cfsqltype="cf_sql_varchar" value="#Form.email#">
 	 				</cfquery>
+					<!--- <cfdump var="#accessDB#"><cfabort> --->
 
-					<cfif accessDB.RecordCount NEQ 0 >
-						<!--- login is now succesful , set CFID as seesion.id --->
-						<cfset sessionRotate() />
-						<cfset session.loggedin = true />
-						<cfset session.name = accessDb.FirstName />
-						<cflocation url = "/mindkart/index.cfm" addToken = "no">
+	 				<cfset variables.hashedPassword = Hash( Form.pwd & #accessDB.Salt#, "SHA-512")>
+	 				<!--- <cfdump var="#variables.hashedPassword#"><br>
+					<cfdump var="#accessDB.HashPassword#"><cfabort> --->
+
+					<cfif ( variables.hashedPassword NEQ #accessDB.HashPassword# )>
+						<cfreturn false>
 					<cfelse>
-						<blockquote>
-							<h1>
-								User Name or Password Not Correct.</br>
-								Please try again.
-							</h1>
-						</blockquote>
+						<cfreturn true>
 					</cfif>
-				<cfelse >
-					<cfoutput>
-						Please try again.You cannot view this page without logging in.
-					</cfoutput>
+
 				</cfif>
 
-			</cffunction>
+		</cffunction>
+	<!--- function to get name from DB by user email --->
+		<cffunction access = "remote" name = "getFirstNameFromDb" returnType = "string" output = "false">
+					<cfargument
+						name = "userEmail"
+						default = ""
+						type = "string">
+					<cfquery
+						name = "getFname">
+						SELECT FirstName
+						FROM UserDetail
+						WHERE  UserEmail = <cfqueryparam cfsqltype="cf_sql_varchar" value="#Form.email#">
+	 				</cfquery>
+			<cfreturn #getFname.FirstName#>
+	 	</cffunction>
+
 </cfcomponent>

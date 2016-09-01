@@ -84,7 +84,8 @@ CREATED BY : Abhijit Mohanty
 				</br></br>
 				<div class="form-group" id="div-submit">
 				    <div class="col-lg-12">
-				      <button type="submit" class="btn btn-primary" >Submit</button>
+				      <button type="reset" class="btn btn-danger" >Reset</button>
+				      <button type="submit" class="btn btn-success" >Submit</button>
 				    </div>
 				</div>
 				</form>

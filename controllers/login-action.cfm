@@ -10,5 +10,16 @@ CREATED BY : Abhijit Mohanty
  --->
 
 <cfscript>
-		request.dbOperation.checkLoginFromDb();
+		variables.loginResult = request.dbOperation.checkLoginFromDb();
+		if (variables.loginResult == true )
+			{
+				sessionRotate();
+				session.loggedin = true;
+				session.name = request.dbOperation.getFirstNameFromDb("Form.email");
+				location (url = "/mindkart/index.cfm", addToken = "no");
+			}
+		else if (variables.loginResult == false)
+			{
+				location (url = "/mindkart/views/login.cfm?Response=Error", addToken = "no");
+			}
 </cfscript>
