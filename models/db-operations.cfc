@@ -75,14 +75,12 @@
 						)
 						VALUES
 						(
-							'#Form.fname#',
-							'#Form.lname#',
-							'#Form.email#',
-							'#Form.phno#',
-							'#variables.hashPassword#',
-							'#variables.salt#'
-
-
+							<cfqueryparam cfsqltype="cf_sql_varchar" value="#Form.fname#">,
+							<cfqueryparam cfsqltype="cf_sql_varchar" value = "#Form.lname#">,
+							<cfqueryparam cfsqltype="cf_sql_varchar" value = "#Form.email#">,
+							<cfqueryparam cfsqltype="cf_sql_varchar" value = "#Form.phno#">,
+							<cfqueryparam cfsqltype="cf_sql_varchar" value = "#variables.hashPassword#">,
+							<cfqueryparam cfsqltype="cf_sql_varchar" value = "#variables.salt#">
 						);
 					</cfquery>
 
@@ -190,11 +188,11 @@
 
 	 				<cfset variables.hashedPassword = Hash( Form.pwd & #accessDB.Salt#, "SHA-512")>
 
-						<cfif ( variables.hashedPassword NEQ #accessDB.HashPassword# )>
-							<cfreturn false >
-						<cfelse>
-							<cfreturn true >
-						</cfif>
+					<cfif ( variables.hashedPassword NEQ #accessDB.HashPassword# )>
+						<cfreturn false >
+					<cfelse>
+						<cfreturn true >
+					</cfif>
 
 				</cfif>
 
@@ -286,21 +284,17 @@
 							)
 						VALUES
 							(
-								'#Form.home#',
-								'#Form.country#',
-								'#Form.state#',
-								'#Form.city#',
-								'#Form.pin#',
-								'#session.userId#'
+								<cfqueryparam cfsqltype="cf_sql_varchar" value="#Form.home#">,
+								<cfqueryparam cfsqltype="cf_sql_varchar" value="#Form.country#">,
+								<cfqueryparam cfsqltype="cf_sql_varchar" value="#Form.state#">,
+								<cfqueryparam cfsqltype="cf_sql_varchar" value="#Form.city#">,
+								<cfqueryparam cfsqltype="cf_sql_varchar" value="#Form.pin#">,
+								<cfqueryparam cfsqltype="cf_sql_varchar" value="#session.userId#">
 							);
 
 
-					</cfquery>
-						<cfdump var="hello"><cfabort>
-
-
-
-						<cfreturn true>
+				</cfquery>
+			<cfreturn true>
 
 		</cffunction>
 </cfcomponent>

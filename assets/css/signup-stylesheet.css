@@ -20,7 +20,7 @@ body
 	margin-left:0px;
 	margin-right:15px;
 }
-span
+errorSpan
 {
 	color:red;
 	position:absolute;

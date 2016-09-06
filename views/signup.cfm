@@ -52,33 +52,33 @@ CREATED BY : Abhijit Mohanty
 
 				<div class="form-group" id = "div-email">
 				  <input type="text" name = "email" class="form-control" id="email" onblur = "checkEmail()" placeholder = "Enter E-Mail Id" maxlength = "50" autofocus>
-				  <span id = "span-email"></span>
+				  <span class = "errorSpan" id = "span-email"></span>
 			    </div>
 				  </br></br>
 			    <div class="form-group" id = "div-pwd">
 				    <input type = "password" class="form-control"name ="pwd" id="pwd" onblur = "checkPassword(document.myForm.pwd)" maxlength = "8" placeholder = "Enter Password" >
-				    <span id = "span-pwd"></span>
+				    <span class = "errorSpan" id = "span-pwd"></span>
 				  </div>
 				  </br></br>
 				  <div class="form-group" id = "div-repwd">
 				    <input type = "password" class="form-control" name = "repwd" id="repwd" onblur = "checkRetypePassword()" maxlength = "8" placeholder = "Retype Password"id="repwd" = "">
-				    <span id = "span-repwd"></span>
+				    <span class = "errorSpan" id = "span-repwd"></span>
 				  </div>
 				</br></br>
 				<div class="form-group" id = "div-fname">
 					<input type="text" class="form-control" name = "fname" id="fname" placeholder="Enter First Name" maxlength = "20" onblur = "checkFirstName(document.myForm.fname)"= "" >
-					<span id = "span-fname"></span>
+					<span class = "errorSpan" id = "span-fname"></span>
 				</div>
 				</br></br>
 				</div>
 				<div class="form-group" id = "div-lname">
 				    <input type="text" class="form-control" name = "lname" id="lname" placeholder="Enter Last Name" maxlength = "20" onblur = "checkLastName(document.myForm.lname)" = "">
-				    <span id = "span-lname"></span>
+				    <span class = "errorSpan" id = "span-lname"></span>
 				</div>
 				</br></br>
 				<div class="form-group" id = "div-phno">
 				    <input type="text" class="form-control" name = "phno" id="phno" placeholder="Enter Phone Number" maxlength = "10" onblur = "checkPh()" = "" >
-				    <span id = "span-phno"></span>
+				    <span class = "errorSpan" id = "span-phno"></span>
 				</div>
 				</div>
 				</br></br>

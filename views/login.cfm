@@ -30,7 +30,7 @@ CREATED BY : Abhijit Mohanty
 				<cfinclude template = "/mindkart/views/layout/navbar.cfm">
 				<cfparam name = "URL.Response" default="">
 				<cfif URL.Response EQ "Error">
-					<span id = "showLoginResult">
+					<span class = "errorSpan" id = "showLoginResult">
 						<h5>Sorry Your Username or Password is Incorrect. Please Try Again.</h5>
 					</span>
 					<cfelse>
@@ -56,7 +56,7 @@ CREATED BY : Abhijit Mohanty
 					  <div class="form-group" id = "div-pwd">
 						  <label> Enter Password: </label>
 					    <input type="password" class="form-control" name = "pwd" id="pwd"  onblur = "checkPassword(document.myForm.pwd)" placeholder = "Enter Password">
-					    <span id = "span-pwd"></span>
+					    <span class = "errorSpan" id = "span-pwd"></span>
 					  </div>
 					  </br></br>
 
@@ -72,7 +72,7 @@ CREATED BY : Abhijit Mohanty
 					      <button type="submit"  class = "btn btn-success">Login</button>
 					    </div>
 					  </div>
-						<span >If you do not have an account please register with us</span>
+						<span class = "errorSpan" >If you do not have an account please register with us</span>
 					 </form>
 
 					</br></br></br></br></br></br></br></br></br></br></br>

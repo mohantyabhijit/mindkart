@@ -8,6 +8,7 @@ TIME CREATED : 7:23PM
 CREATED BY : Abhijit Mohanty
 ================================================================
  --->
+<!DOCTYPE html>
 <html>
 <head>
 	<link rel="stylesheet" href = "assets/css/side-menu-stylesheet.css">
