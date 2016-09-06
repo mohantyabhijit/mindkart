@@ -258,7 +258,7 @@ component serverSideValidation
 				else
 					{
 						return "success";
-						//location (url = "/mindkart/views/signup.cfm?Response=Success", addToken = "no");
+
 					}
 
 

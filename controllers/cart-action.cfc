@@ -19,4 +19,5 @@ component output=false persistent=false cartAction{
 				ArrayAppend(session.cartInfo,"#session.cartItem#");
 				return "Add to Cart Successful";
 		}
+
 }

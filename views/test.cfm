@@ -23,13 +23,20 @@ CREATED BY : Abhijit Mohanty
 		<script type = "text/javascript"  src = "../assets/js/side-menu.js"></script>
 	</head>
 		<body>
-			<cfloop from="1" to="#arrayLen(session.cartInfo)#" index="i">
+			<!---
+<cfloop from="1" to="#arrayLen(session.cartInfo)#" index="i">
 			 <cfoutput>
 			    		#session.cartInfo[i].cartItem#<br>
 
 			</cfoutput>
 					 	 </cfloop>
-			<cfdump var="#session.cartInfo#">
+ --->
+<!---
+		<cfset StructClear(session)>
+				<cfset StructClear(cookie)>
+ --->
+
+			<cfdump var="#session.userId#">
 <!---
 <cfloop from="1" to="#arrayLen(session.cartInfo)#" index="i">
 			 <cfoutput>

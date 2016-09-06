@@ -19,6 +19,9 @@ CREATED BY : Abhijit Mohanty
 	</head>
 		<body>
 				</br></br></br></br>
+				<div>
+				</div>
+				<br class = "clearFloat">
 				 <footer class="container-fluid text-center" id="footer">
 				  	<p id = "footer">
 					  	<strong>Follow Us On </br></br></strong>

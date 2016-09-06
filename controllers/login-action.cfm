@@ -8,14 +8,21 @@ TIME CREATED : 8:11PM
 CREATED BY : Abhijit Mohanty
 ================================================================
  --->
+<cfparam name = "variables.loginResult" type = "boolean" default = false>
+
 
 <cfscript>
+
+
 		variables.loginResult = request.dbOperation.checkLoginFromDb();
+
+
 		if (variables.loginResult == true )
 			{
 				sessionRotate();
 				session.loggedin = true;
 				session.name = request.dbOperation.getFirstNameFromDb("Form.email");
+				session.userId = request.dbOperation.getUserIdFromDb("Form.email");
 				location (url = "/mindkart/index.cfm", addToken = "no");
 			}
 		else if (variables.loginResult == false)

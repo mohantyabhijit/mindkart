@@ -34,7 +34,7 @@ CREATED BY : Abhijit Mohanty
 
 			<h1>Come Onboard</h1>
 			<div id = div-error>
-			<!--- <button id="errorButton" class = "btn btn-danger" onclick = "errorData()" name = "errorShow" >Errors</button> --->
+
 			 	<cfif URL.Response EQ "Errors">
 				<span id = "showResult">
 					<cfloop index="error" list="#session.showErrors#" delimiters=','>
@@ -47,7 +47,7 @@ CREATED BY : Abhijit Mohanty
 			</div>
 
 
-			<form name="myForm"   class = "form-inline" method="post" action="/mindkart/controllers/signup-action.cfm" >
+			<form name="signupForm"   class = "form-inline" method="post" action="/mindkart/controllers/signup-action.cfm" >
 				</br></br>
 
 				<div class="form-group" id = "div-email">

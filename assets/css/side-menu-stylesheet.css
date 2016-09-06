@@ -16,7 +16,7 @@ CREATED BY : Abhijit Mohanty
     z-index: 1; /* Stay on top */
     top: 0;
     left: 0;
-    background-color: white; /* Black*/
+    background-color: #FADBE5; /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -27,7 +27,7 @@ CREATED BY : Abhijit Mohanty
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 15px;
-    color: brown;;
+    color: brown;
     display: block;
     transition: 0.3s
 }
@@ -65,7 +65,7 @@ CREATED BY : Abhijit Mohanty
 	align:center;
 	text-align:left;
 	height:50px;
-	/* background:gray; */
+	 /* background:blue; */ 
 	color:black;
 	align-text:left;
 	margin-top:0;

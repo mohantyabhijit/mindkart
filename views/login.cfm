@@ -29,48 +29,56 @@ CREATED BY : Abhijit Mohanty
 				<cfinclude template = "/mindkart/views/layout/header.cfm">
 				<cfinclude template = "/mindkart/views/layout/navbar.cfm">
 				<cfparam name = "URL.Response" default="">
-
 				<cfif URL.Response EQ "Error">
-				<span id = "showLoginResult">
-					<h5>Sorry Your Username or Password is Incorrect. Please Try Again.</h5>
-				</span>
+					<span id = "showLoginResult">
+						<h5>Sorry Your Username or Password is Incorrect. Please Try Again.</h5>
+					</span>
+					<cfelse>
+					<p></p>
+					</cfif>
+				<!--- <cfif URL.From EQ "Checkout" AND session.loggedin EQ true>
+					<cflocation url = "/mindkart/views/utility/payment.cfm" addToken = "no">
+				</cfif> --->
+
+				<cfif NOT (IsDefined ("session.loggedin") AND session.loggedin )>
+
+					<form name = "myForm" class = "form-inline" method = "post" action = "/mindkart/controllers/login-action.cfm" >
+						</br></br>
+
+					  <div class="form-group" id = "div-email">
+						 <label> Enter Email Id: </label>
+					    <input type="email" class="form-control" name="email" id="email"  onblur = "checkEmail()" placeholder = "Enter E-Mail Id" autofocus>
+					    <span id = "span-email"></span>
+					  </div>
+					  </br></br>
+
+
+					  <div class="form-group" id = "div-pwd">
+						  <label> Enter Password: </label>
+					    <input type="password" class="form-control" name = "pwd" id="pwd"  onblur = "checkPassword(document.myForm.pwd)" placeholder = "Enter Password">
+					    <span id = "span-pwd"></span>
+					  </div>
+					  </br></br>
+
+
+					  <div class="form-group" id="div-submit">
+					    <div class="col-lg-12">
+					      <a href="/mindkart/views/signup.cfm" class="btn btn-warning" role="button">Register</a>
+					    </div>
+					  </div>
+
+					  <div class="form-group" id="div-submit">
+					    <div class="col-lg-12">
+					      <button type="submit"  class = "btn btn-success">Login</button>
+					    </div>
+					  </div>
+						<span >If you do not have an account please register with us</span>
+					 </form>
+
+					</br></br></br></br></br></br></br></br></br></br></br>
+					<cfinclude template = "/mindkart/views/layout/footer.cfm">
 				<cfelse>
-				<p></p>
+						<cflocation url = "/mindkart/index.cfm" addToken = "no">
 				</cfif>
-				<form name = "myForm" class = "form-inline" method = "post" action = "/mindkart/controllers/login-action.cfm" >
-					</br></br>
-
-				  <div class="form-group" id = "div-email">
-					 <label> Enter Email Id: </label>
-				    <input type="email" class="form-control" name="email" id="email"  onblur = "checkEmail()" placeholder = "Enter E-Mail Id" autofocus>
-				    <span id = "span-email"></span>
-				  </div>
-				  </br></br>
-
-
-				  <div class="form-group" id = "div-pwd">
-					  <label> Enter Password: </label>
-				    <input type="password" class="form-control" name = "pwd" id="pwd"  onblur = "checkPassword(document.myForm.pwd)" placeholder = "Enter Password">
-				    <span id = "span-pwd"></span>
-				  </div>
-				  </br></br>
-
-
-				  <div class="form-group" id="div-submit">
-				    <div class="col-lg-12">
-				      <a href="/mindkart/views/signup.cfm" class="btn btn-warning" role="button">Register</a>
-				    </div>
-				  </div>
-
-				  <div class="form-group" id="div-submit">
-				    <div class="col-lg-12">
-				      <button type="submit"  class = "btn btn-success">Login</button>
-				    </div>
-				  </div>
-					<span >If you do not have an account please register with us</span>
-				 </form>
-
-				</br></br></br></br></br></br></br></br></br></br></br>
-				<cfinclude template = "/mindkart/views/layout/footer.cfm">
 		</body>
 </html>

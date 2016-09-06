@@ -54,3 +54,33 @@ CREATED BY : Abhijit Mohanty
   	{
   		margin-left:37%;
   	}
+  #addressPanel
+  	{
+  		display : inline; 
+  		margin-left: 25%;
+  		width : 50%;
+  	}
+  	.showAddressDiv
+  	{
+  		width: 350px;
+		height: 350px;
+		float: left;
+		margin-left: 50px;
+  	}
+  	.clearFloat
+  	{
+  		clear : both;
+  	}
+  	#addAddress
+  	{
+  		display : inline;
+  		float : middle;
+  	}
+  	a 
+  	{
+  		 cursor: pointer;
+  	}
+  	ul li 
+  		{
+  			 cursor: pointer; cursor: hand; 	
+  		}

@@ -41,7 +41,7 @@ CREATED BY : ABHIJIT MOHANTY
 					        <div class="panel-body"  >
 								<cfoutput>
 								  <cfset imagePath = request.dbOperation.getImageOfFirstProductFromDb(queryToLoopCategory.CategoryId)>
-								  <img src = "#imagePath.ImagePath#" alt="#queryToLoopCategory.CategoryName#Image" class="img-responsive"  width = "100%">;
+								  <img src = "#imagePath.ImagePath#" alt="#queryToLoopCategory.CategoryName#Image" class="img-responsive"  width = "100%">
 								</cfoutput>
 							</div>
 						         <cfoutput>
