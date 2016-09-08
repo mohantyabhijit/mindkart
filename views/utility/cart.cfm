@@ -8,11 +8,11 @@ TIME CREATED : 7:23PM
 CREATED BY : Abhijit Mohanty
 ================================================================
  --->
-<!DOCTYPE html>
 <html>
 <head>
 	<link rel="stylesheet" href = "assets/css/side-menu-stylesheet.css">
 	<link rel="stylesheet" href = "assets/css/bootstrap.min.css">
+	<script type = "text/javascript"  src = "/mindkart/assets/js/cart.js"></script>
     <title>Shopping Cart</title>
 </head>
 
@@ -31,80 +31,29 @@ CREATED BY : Abhijit Mohanty
 	<th>Quantity</th>
 	<th>ProductId</th>
     </tr>
-
-				<cfloop from="1" to="#ArrayLen(session.cartInfo)#" index="i">
-					<cfoutput>
-						 <tr>
-						  <cfset data = session.cartInfo[i]>
-						  <cfloop collection="#data#" item="key">
-					    		<td>#data[key]# </td>
-					 	  </cfloop>
-					 	  <br>
-					 	 </tr>
-					</cfoutput>
+	<cfloop from="1" to="#ArrayLen(session.cartInfo)#" index="i">
+		<cfoutput>
+			<tr>
+				<cfset data = session.cartInfo[i]>
+				<cfset ArrayAppend(session.productArray,"#session.cartInfo[i].ID#") >
+				<cfloop collection="#data#" item="key">
+			   		<td> #data[key]# </td>
 				</cfloop>
-
+			 	<br>
+			</tr>
+		</cfoutput>
+	</cfloop>
 </table>
 </div>
 <br>
+
+<cfset session.cartLength = ArrayLen (session.cartInfo)>
 <div class = "table-responsive">
 <input class="btn btn-primary" type="button" name="submit" value="Update Cart">
-<input class="btn btn-success" type="submit" name="submit" value="Proceed To Buy" formaction = "/mindkart/views/utility/checkout.cfm">
+<input class="btn btn-success" type="submit" name="buy" onclick = "moveToOrder()" value="Proceed To Buy" method = "post" formaction = "/mindkart/views/address.cfm">
 </div>
 </cfform>
 <cfinclude template = "/mindkart/views/layout/footer.cfm">
 </body>
 </html>
 
- <!--- <cfloop from="1" to="#ArrayLen(session.cartInfo)#" index="i">
-			<cfoutput>
-				<tr>
-				  	<cfset data = session.cartInfo[i]>
-				  	COLLECTION/STRUCTURE
-				  	<cfdump var="#data#">
-				  	SESSION CARTINFO
-				  	<cfdump var="#session.cartInfo#">
-				  	<cfabort>
-
-				  	<cfloop collection="#data#" item="key">
-			    		<td>
-				    	<input type="text" name="field" value="#data.ID[key]#" >
-				    	<input type="text" name="field" value="#data.MAKE[key]#" >
-				    	<input type="text" name="field" value="#data.MODEL[key]#" >
-				    	<input type="text" name="field" value="#data.NAME[key]#" >
-				    	<input type="text" name="field" value="#data.PRICE[key]#" >
-				    	<input type="text" name="field" value="#data.QTY[key]#" >
-			    		 <!--- #data[key]# --->
-						</td>
-			 	   	</cfloop>
-			 	 	<br>
-			 	 </tr>
-			</cfoutput>
-	</cfloop> --->
-
-<!--- <!DOCTYPE html>
-<html>
-<head>
-    <title>Shopping Cart</title>
-</head>
-<body>
-<table>
-			<tr class="cartData">
-						<th > Item </th>
-						<th > Quantity </th>
-						<th > Unit Price</th>
-						<th > Unit Shipping Cost</th>
-						<th > Subtotal </th>
-			</tr>
-<cfloop from="1" to="#arrayLen(session.cartInfo)#" index="i">
-			 <cfoutput>
-				  <cfset data = session.cartInfo[i]>
-				  <cfloop collection="#data#" item="key">
-			    		<td>#data[key]# </td><br />
-			 	 </cfloop>
-			 	 <br>
-			</cfoutput>
-</cfloop>
-</body>
-</table>
-</html> --->

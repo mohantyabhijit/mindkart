@@ -24,7 +24,10 @@ function onApplicationStart()
 function onSessionStart()
 	{
 			session.cartInfo = ArrayNew(1);
+			session.userOrderId = 0;
+			session.productArray = ArrayNew(1);
 			session.loggedin = false;
+			session.cartLength = 0;
 			WriteLog(text="Session started successfully.", type="Information", file="logMindkart");
 			return true;
 	}

@@ -93,7 +93,7 @@ function checkFirstName(inputtxt)
 		document.getElementById("span-fname").innerHTML=fNameErrorMessage;
 }  
 
-function checkFirstName(inputtxt)  
+function checkLastName(inputtxt)  
 {  
    //last name should contain only alphabets
 	var lastNameValue = document.getElementById("fname").value;
@@ -295,6 +295,6 @@ function checkErrors()
 		      document.getElementById("showErrors").innerHTML = xhttp.responseText;
 		    }
 	};
-	xhttp.open ("GET", "../views/errorsView.cfm", true);
+	xhttp.open ("GET", "/mindkart/views/errorsView.cfm", true);
 	xhttp.send();
 }

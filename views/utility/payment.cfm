@@ -23,7 +23,8 @@ CREATED BY : Abhijit Mohanty
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.2.3/jquery.payment.min.js"></script>
 		<script type="text/javascript" src="/mindkart/assets/js/payment.js"></script>
-
+		<script type="text/javascript" src="/mindkart/assets/js/cart.js"></script>
+		<title>Pay</title>
 <!-- If you're using Stripe for payments -->
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
@@ -134,7 +135,7 @@ THE SOFTWARE.
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <button class="btn btn-success btn-lg btn-block" type="submit">Complete Payment</button>
+                                <button class="btn btn-success btn-lg btn-block" onclick = "pushCartToDb(<cfoutput>#session.userOrderId#</cfoutput>)" type="submit" method = "post">Complete Payment</button>
                             </div>
                         </div>
                         <div class="row" style="display:none;">

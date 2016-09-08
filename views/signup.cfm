@@ -44,10 +44,11 @@ CREATED BY : Abhijit Mohanty
 				<cfelse>
 				<p></p>
 				</cfif>
+
 			</div>
 
 
-			<form name="signupForm"   class = "form-inline" method="post" action="/mindkart/controllers/signup-action.cfm" >
+			<form name="myForm" class = "form-inline" method="post" action="/mindkart/controllers/signup-action.cfm" >
 				</br></br>
 
 				<div class="form-group" id = "div-email">
@@ -77,7 +78,7 @@ CREATED BY : Abhijit Mohanty
 				</div>
 				</br></br>
 				<div class="form-group" id = "div-phno">
-				    <input type="text" class="form-control" name = "phno" id="phno" placeholder="Enter Phone Number" maxlength = "10" onblur = "checkPh()" = "" >
+				    <input type="text" class="form-control" name = "phno" id="phno" placeholder="Enter Phone Number" maxlength = "10" onblur = "checkPhNo()" = "" >
 				    <span class = "errorSpan" id = "span-phno"></span>
 				</div>
 				</div>

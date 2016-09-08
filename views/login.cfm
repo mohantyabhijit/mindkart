@@ -48,7 +48,7 @@ CREATED BY : Abhijit Mohanty
 					  <div class="form-group" id = "div-email">
 						 <label> Enter Email Id: </label>
 					    <input type="email" class="form-control" name="email" id="email"  onblur = "checkEmail()" placeholder = "Enter E-Mail Id" autofocus>
-					    <span id = "span-email"></span>
+					    <span class = "errorSpan" id = "span-email"></span>
 					  </div>
 					  </br></br>
 

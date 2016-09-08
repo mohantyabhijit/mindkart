@@ -59,7 +59,8 @@ CREATED BY : Abhijit Mohanty
 									<b><u>Price :</u></b>#variables.productInfo.Price#
 								</cfoutput>
 							</div>
-							<div class="panel-footer"><button class =" btn btn-success" id = "addToCartButton"type = "submit" method = "post"  onclick = "addToCart(<cfoutput>#variables.productId#</cfoutput>)">
+							<div class="panel-footer">
+								<button class =" btn btn-success" id = "addToCartButton" type = "submit" method = "post" onclick = "addToCart(<cfoutput>#variables.productId#</cfoutput>)">
 								<span class = "glyphicon glyphicon-plus"></span> Add to Cart </button>
 							</div>
 							<span id="cartResult"></span>

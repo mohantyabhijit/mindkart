@@ -259,7 +259,7 @@
 
 						<cfquery
 							name = "getAddress">
-							SELECT HomeAddress, Country, State, City, Zip
+							SELECT AddressId, HomeAddress, Country, State, City, Zip
 							FROM [AddressDetail]
 							WHERE UserId = <cfqueryparam cfsqltype = "cf_sql_integer" value = "#session.userId#">
 						</cfquery>
@@ -269,8 +269,6 @@
 <!--- function to add address from checkout page --->
 		<cffunction access = "remote" name = "insertAddressToDb" returnType = "boolean" output = "false">
 			<cfargument name = "userId" default = 1 type = "numeric">
-
-
 				<cfquery name = "putAddress">
 					INSERT
 						INTO AddressDetail
@@ -291,10 +289,56 @@
 								<cfqueryparam cfsqltype="cf_sql_varchar" value="#Form.pin#">,
 								<cfqueryparam cfsqltype="cf_sql_varchar" value="#session.userId#">
 							);
-
-
 				</cfquery>
 			<cfreturn true>
 
+		</cffunction>
+<!--- function to insert user id and address id to table and get UserOrderId --->
+		<cffunction access = "remote" name = "insertUserAddressToDb" returnType = "boolean" output="false">
+			<cfargument name = "addressId" default="1" type="numeric">
+				<cfquery name = "putUserAddress">
+					INSERT
+						INTO UserOrderAddress
+							(
+								UserId,
+								AddressId,
+								OrderedTime
+							)
+
+						VALUES
+							(
+								<cfqueryparam cfsqltype="cf_sql_varchar" value="#session.userId#">,
+								<cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.addressId#">,
+								CURRENT_TIMESTAMP
+							);
+
+				</cfquery>
+			<cfreturn true>
+		</cffunction>
+<!--- function to get UserOrderId of last inserted address --->
+		<cffunction access = "remote" name="getUserOrderId" returnTYpe="string" output="false">
+			<cfquery name="getId">
+				SELECT TOP 1 UserOrderId FROM UserOrderAddress ORDER BY UserOrderId DESC;
+			</cfquery>
+		<cfreturn #getId.UserOrderId#>
+		</cffunction>
+<!--- function to add products from session to db by UserOrderId --->
+		<cffunction access="remote" name="pushProductsToDb" returntype="string" output="false">
+			<cfargument name = "userOrderId" required = "yes"  type="numeric">
+			<cfargument name = "productId" required = "yes"  type="numeric">
+			<cfargument name = "productQuantity" required = "yes"  type="numeric">
+				<cfquery name = "insertProducts">
+					INSERT INTO
+							OrderDetail
+							(
+								OrderedQuantity, ProductId, UserOrderId
+							)
+							VALUES
+							(
+								<cfqueryparam cfsqltype = "cf_sql_integer" value = "#arguments.productQuantity#">,
+								<cfqueryparam cfsqltype = "cf_sql_integer" value = "#arguments.productId#">,
+								<cfqueryparam cfsqltype = "cf_sql_integer" value = "#session.userOrderId#">
+							);
+				</cfquery>
 		</cffunction>
 </cfcomponent>

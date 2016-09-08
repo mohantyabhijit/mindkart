@@ -18,6 +18,8 @@ CREATED BY : Abhijit Mohanty
 		<link rel="stylesheet" href = "/mindkart/assets/css/bootstrap.min.css">
 		<link rel="stylesheet" href = "/mindkart/assets/css/page-stylesheet.css">
 		<link rel="shortcut icon" href="/mindkart/assets/images/favicon.ico" type="image/x-icon">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type = "text/javascript"  src = "/mindkart/assets/js/address.js"></script>
 		<title>
 			Address
 		</title>
@@ -35,7 +37,7 @@ CREATED BY : Abhijit Mohanty
 					<cfoutput>
 					<div class="col-sm-4">
 					    <div class="panel panel-danger">
-						<form name="addressForm" class="form-inline">
+						<form name="addressForm" class="form-inline" method="post" action="/mindkart/views/utility/payment.cfm">
 
 							<div class="form-group" id = "div-house">
 								<br>
@@ -69,7 +71,7 @@ CREATED BY : Abhijit Mohanty
 							</div>
 							<br><br>
 							<div class="panel-footer">
-								<button class="btn btn-success"><span class="glyphicon glyphicon-inbox" aria-hidden="true"> </span> Deliver here</button>
+								<button class="btn btn-success" type="submit" onclick = "addAddress(<cfoutput>#variables.addresses.AddressId[addressLoop]#</cfoutput>)"><span class="glyphicon glyphicon-inbox" aria-hidden="true"> </span> Deliver here</button>
 					        </div>
 						</div>
 					</div>

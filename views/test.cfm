@@ -21,36 +21,25 @@ CREATED BY : Abhijit Mohanty
 		<script type = "text/javascript"  src = "../assets/js/jquery-3.1.0.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 		<script type = "text/javascript"  src = "../assets/js/side-menu.js"></script>
+		<script>
+			function show(array)
+			{
+				for (var i = 1; i < array.length; i++)
+					{
+						alert(array[i])	;
+					}
+			}
+		</script>
 	</head>
 		<body>
-			<!---
-<cfloop from="1" to="#arrayLen(session.cartInfo)#" index="i">
-			 <cfoutput>
-			    		#session.cartInfo[i].cartItem#<br>
-
-			</cfoutput>
-					 	 </cfloop>
- --->
-<!---
-		<cfset StructClear(session)>
-				<cfset StructClear(cookie)>
- --->
-
-			<cfdump var="#session.userId#">
-<!---
-<cfloop from="1" to="#arrayLen(session.cartInfo)#" index="i">
-			 <cfoutput>
-				  <cfset data = session.cartInfo[i]>
-				  <cfloop collection="#data#" item="key">
-			    		#key#:#data[key]# <br>
-			 	 </cfloop>
-			</cfoutput>
- --->
-
-<!--- </cfloop> --->
 			<cfscript>
-				//writedump(session.cartInfo);
-
+				myArray = ArrayNew(1);
+				ArrayAppend (myArray, "1");
+				ArrayAppend (myArray, "1");
+				ArrayAppend (myArray, "1");
+				ArrayAppend (myArray, "1");
+				<button class="btn btn-success" type="submit" onclick="show (myArray)">Click Me </button>
 			</cfscript>
-			</body>
+
+		</body>
 </html>
