@@ -323,7 +323,7 @@
 		<cfreturn #getId.UserOrderId#>
 		</cffunction>
 <!--- function to add products from session to db by UserOrderId --->
-		<cffunction access="remote" name="pushProductsToDb" returntype="string" output="false">
+		<cffunction access="remote" name="pushProductsToDb" returntype="boolean" output="false">
 			<cfargument name = "userOrderId" required = "yes"  type="numeric">
 			<cfargument name = "productId" required = "yes"  type="numeric">
 			<cfargument name = "productQuantity" required = "yes"  type="numeric">
@@ -340,5 +340,19 @@
 								<cfqueryparam cfsqltype = "cf_sql_integer" value = "#session.userOrderId#">
 							);
 				</cfquery>
+			<cfreturn true>
 		</cffunction>
+<!--- function to show order details of the user --->
+		<cffunction access="remote" name="getOrderDetails" returnType="query" output="false">
+			<cfquery name="getOrder">
+				SELECT ProductId, OrderedQuantity,OrderedTime, AddressId, UserId FROM OrderDetail
+				INNER JOIN UserOrderAddress
+				ON OrderDetail.UserOrderId = UserOrderAddress.UserOrderId
+				ORDER BY OrderedTime DESC;
+			</cfquery>
+			<cfreturn getOrder>
+		</cffunction>
+
+
+
 </cfcomponent>

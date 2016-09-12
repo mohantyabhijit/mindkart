@@ -20,7 +20,7 @@ CREATED BY : Abhijit Mohanty
 <cfinclude template = "/mindkart/views/layout/header.cfm">
 <cfinclude template = "/mindkart/views/layout/navbar.cfm">
 
-<cfform name="ShoppingCart" action="/mindkart/controllers/ShoppingCartAction.cfm" method="post">
+<cfform name="ShoppingCart" action="/mindkart/views/address.cfm" method="post">
 <div class = "table-responsive table-hover table-bordered">
 <table class = "table">
     <tr class = "cartTable">
@@ -29,13 +29,11 @@ CREATED BY : Abhijit Mohanty
     <th>Model</th>
     <th>Name</th>
 	<th>Quantity</th>
-	<th>ProductId</th>
     </tr>
 	<cfloop from="1" to="#ArrayLen(session.cartInfo)#" index="i">
 		<cfoutput>
 			<tr>
 				<cfset data = session.cartInfo[i]>
-				<cfset ArrayAppend(session.productArray,"#session.cartInfo[i].ID#") >
 				<cfloop collection="#data#" item="key">
 			   		<td> #data[key]# </td>
 				</cfloop>
@@ -50,7 +48,7 @@ CREATED BY : Abhijit Mohanty
 <cfset session.cartLength = ArrayLen (session.cartInfo)>
 <div class = "table-responsive">
 <input class="btn btn-primary" type="button" name="submit" value="Update Cart">
-<input class="btn btn-success" type="submit" name="buy" onclick = "moveToOrder()" value="Proceed To Buy" method = "post" formaction = "/mindkart/views/address.cfm">
+<input class="btn btn-success" type="submit" name="buy" value="Proceed To Buy" method = "post" formaction = "/mindkart/views/address.cfm">
 </div>
 </cfform>
 <cfinclude template = "/mindkart/views/layout/footer.cfm">

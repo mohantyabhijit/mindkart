@@ -32,7 +32,7 @@ CREATED BY : Abhijit Mohanty
 							location (url = "/mindkart/index.cfm" , addToken = "no" );
 						}
 				</cfscript>
->
+
 
 
 

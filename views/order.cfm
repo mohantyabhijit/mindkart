@@ -18,9 +18,55 @@ CREATED BY : Abhijit Mohanty
 </head>
 
 <body>
-<cfinclude template = "/mindkart/views/layout/header.cfm">
-<cfinclude template = "/mindkart/views/layout/navbar.cfm">
+	<cfinclude template = "/mindkart/views/layout/header.cfm">
+	<cfinclude template = "/mindkart/views/layout/navbar.cfm">
+	<cfset variables.orderDetailCall = request.dbOperation.getOrderDetails()>
+	<div class = "table-responsive table-hover table-bordered">
+	<table class = "table">
+    <tr class = "cartTable">
+    <th>Make</th>
+    <th>Price</th>
+    <th>Model</th>
+    <th>Name</th>
+	<th>Quantity</th>
+    </tr>
+	<cfloop from="1" to="5" index="i">
+		<cfoutput>
+			<tr>
+				<!---<cfset data = variables.orderDetailCall>  --->
+				<!--- <cfdump var="#variables.orderDetailCall#"><cfabort> --->
 
-<cfinclude template = "/mindkart/views/layout/footer.cfm">
+				<cfloop query="#variables.orderDetailCall#" >
+					<td> #variables.orderDetailCall.OrderedQuantity# <br> </td>
+			   		<td> #variables.orderDetailCall.OrderedTime# <br> </td>
+			   		<td> #variables.orderDetailCall.AddressId# <br> </td>
+				</cfloop>
+			 	<br>
+			</tr>
+		</cfoutput>
+	</cfloop>
+</table>
+
+<!--- 	<cfdump var="#variables.orderDetailCall#"> --->
+	<cfinclude template = "/mindkart/views/layout/footer.cfm">
 </body>
 </html>
+<!--- <cfdocument format="PDF" filename="order-detail-mindkart.pdf" overwrite="Yes">
+		<!DOCTYPE html>
+		<html>
+		<head>
+
+		</head>
+		<body>
+		<h1 align="center"> Congratulations !!! You have successfully placed the order.</h1>
+								<h3 align="center"> Order Details </h3>
+									<table class = "table">
+										<tr class = "orderTable">
+
+										</tr>
+									</table>
+		</body>
+		</html>
+</cfdocument>
+<cfheader name="Content-Disposition" value="attachment;filename=order-detail-mindkart.pdf">
+ --->

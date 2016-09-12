@@ -96,15 +96,6 @@ component serverSideValidation
 		   //first name should contain only alphabets
 
 
-			if (REFind('^[a-zA-Z]+$', Form.fname) EQ 0)
-				{
-					Variables.errorMessage = ListAppend (Variables.errorMessage,"Should Contain only Alphabets ",",");
-				}
-			else
-			    {
-			    	Variables.errorMessage = ListAppend (Variables.errorMessage,"" ,",");
-
-			    }
 			if ( Form.fname EQ "")
 			   	{
 			   		Variables.errorMessage = ListAppend (Variables.errorMessage," First Name field cannot be blank.",",");
@@ -114,6 +105,16 @@ component serverSideValidation
 				{
 					Variables.errorMessage = ListAppend (Variables.errorMessage,"");
 				}
+			if (REFind('[a-zA-Z]', Form.fname) EQ 0)
+				{
+					Variables.errorMessage = ListAppend (Variables.errorMessage,"First Name Should Contain only Alphabets ",",");
+				}
+			else
+			    {
+			    	Variables.errorMessage = ListAppend (Variables.errorMessage,"" ,",");
+
+			    }
+
 
 		}
 

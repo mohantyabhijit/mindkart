@@ -10,12 +10,13 @@ component output=false persistent=false cartAction{
 
 			variables.productDetails = request.dbOperation.getProductDetails(pId);
 			session.cartItem = StructNew();
-			session.cartItem.id = pId;
+			session.productId = pId;
 			session.cartItem.name = #variables.productDetails.ProductName#;
 			session.cartItem.make = #variables.productDetails.Make#;
 			session.cartItem.model = #variables.productDetails.Model#;
 			session.cartItem.qty = 1;
 			session.cartItem.price = #variables.productDetails.Price#;
+			ArrayAppend(session.productArray,"#session.productId#");
 			ArrayAppend(session.cartInfo,"#session.cartItem#");
 			session.cartLength = session.cartLength + 1;
 			return "Add to Cart Successful";
@@ -38,12 +39,10 @@ component output=false persistent=false cartAction{
 		}
 	remote string function addProductsToDb(uId)
 		{
-			writedump("inside cfc method");abort;
-
 
 			for (index = 1 ; index <= ArrayLen (session.productArray); index++ )
 			{
-				request.dbOperation.pushProductsToDb(session.userOrderId, session.productArray[index], variables.productQuantity);
+				request.dbOperation.pushProductsToDb(session.userOrderId, session.productArray[index], 1);
 			}
 		}
 }

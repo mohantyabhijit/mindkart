@@ -8,7 +8,7 @@ TIME CREATED : 5:11PM
 CREATED BY : Abhijit Mohanty
 =========================================================================
 */
-
+//function to implement Ajax calls for Add to Cart functionality
 function addToCart(productId){			
 				
 	$.ajax({
@@ -30,23 +30,4 @@ function addToCart(productId){
 		  }
 		});
 				
-}
-function pushCartToDb(userOrderId){
-	$.ajax({
-		alert("inside js");  
-	    url: "/mindkart/controllers/cart-action.cfc?method=pushProductsToDb&uId="+userOrderId
-	    
-	    , type: "get"
-	    , dataType: "text"
-	    
-	    , success: function (data){
-	    			console.log(data);
-	    			}
-	  
-	  , error: function (xhr, textStatus, errorThrown){
-	    
-		  console.log(errorThrown);		
-		 
-	  }
-	});
 }

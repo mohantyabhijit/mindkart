@@ -19,13 +19,13 @@ function addAddress(addressId)
 		    
 		    , success: function (data){
 		    				
-		    					alert(data);
+		    					console.log(data);
 		    				
 		    		}
 		  
 		  , error: function (xhr, textStatus, errorThrown){
 		    
-			  alert(errorThrown);		
+			  console.log(errorThrown);		
 			 
 		  }
 		});

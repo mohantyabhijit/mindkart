@@ -21,25 +21,13 @@ CREATED BY : Abhijit Mohanty
 		<script type = "text/javascript"  src = "../assets/js/jquery-3.1.0.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 		<script type = "text/javascript"  src = "../assets/js/side-menu.js"></script>
-		<script>
-			function show(array)
-			{
-				for (var i = 1; i < array.length; i++)
-					{
-						alert(array[i])	;
-					}
-			}
-		</script>
+
 	</head>
 		<body>
-			<cfscript>
-				myArray = ArrayNew(1);
-				ArrayAppend (myArray, "1");
-				ArrayAppend (myArray, "1");
-				ArrayAppend (myArray, "1");
-				ArrayAppend (myArray, "1");
-				<button class="btn btn-success" type="submit" onclick="show (myArray)">Click Me </button>
-			</cfscript>
-
+			<cfdocument format = "PDF">
+				<cfoutput>
+					HELLO IN PDF
+				</cfoutput>
+			</cfdocument>
 		</body>
 </html>
