@@ -31,3 +31,30 @@ function addToCart(productId){
 		});
 				
 }
+
+function increaseQuantity(){
+	alert("Quantity Increased");
+	$.ajax({
+		  
+	    url: "/mindkart/controllers/cart-action.cfc?method=quantityIncrease&pId="+productId
+	    , type: "get"
+	    , dataType: "text"
+	    
+	    , success: function (data){
+	    				
+	    				$("#cartResult").html(data);
+	    				window.location.reload();
+	    		}
+	  
+	  , error: function (xhr, textStatus, errorThrown){
+	    
+		  $("#cartResult").html(errorThrown);		
+		 
+	  }
+	});
+
+}
+
+function decreaseQuantity(){
+	alert("Quantity Decreased");
+}

@@ -45,4 +45,8 @@ component output=false persistent=false cartAction{
 				request.dbOperation.pushProductsToDb(session.userOrderId, session.productArray[index], 1);
 			}
 		}
+	remote string function increaseQty()
+		{
+
+		}
 }

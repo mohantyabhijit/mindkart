@@ -21,7 +21,11 @@ CREATED BY : Abhijit Mohanty
 	<cfinclude template = "/mindkart/views/layout/header.cfm">
 	<cfinclude template = "/mindkart/views/layout/navbar.cfm">
 	<cfset variables.orderDetailCall = request.dbOperation.getOrderDetails()>
-	<div class = "table-responsive table-hover table-bordered">
+		<h1 align="center"> Congratulations !!! You have successfully placed the order.</h1>
+		<h3 align="center"> To view your order please click orders tab. </h3>
+
+	<!---
+<div class = "table-responsive table-hover table-bordered">
 	<table class = "table">
     <tr class = "cartTable">
     <th>Make</th>
@@ -46,8 +50,10 @@ CREATED BY : Abhijit Mohanty
 		</cfoutput>
 	</cfloop>
 </table>
+ --->
 
 <!--- 	<cfdump var="#variables.orderDetailCall#"> --->
+	<br/><br /><br /><br /><br /><br />
 	<cfinclude template = "/mindkart/views/layout/footer.cfm">
 </body>
 </html>

@@ -84,3 +84,18 @@ CREATED BY : Abhijit Mohanty
   		{
   			 cursor: pointer; cursor: hand; 	
   		}
+  	.cartForm 
+  		{
+  			border:0;
+  	}
+  #grandTotal
+  	{
+  		font-size:150%;
+  		margin-left:48%;
+   	}
+   	#productQty
+   	{
+   		text-align : left;
+   		margin-left: 15px;	
+   	}
+  		}

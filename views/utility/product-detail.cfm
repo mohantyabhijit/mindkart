@@ -17,8 +17,12 @@ CREATED BY : Abhijit Mohanty
 		<link rel="stylesheet" href = "/mindkart/assets/css/bootstrap.min.css">
 		<link rel="stylesheet" href = "/mindkart/assets/css/page-stylesheet.css">
 		<link rel="shortcut icon" href="/mindkart/assets/images/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script type = "text/javascript"  src = "/mindkart/assets/js/cart.js"></script>
+		<title>
+			Product Detail
+		</title>
 	</head>
 		<body>
 			<cfinclude template = "/mindkart/views/layout/header.cfm">
@@ -56,7 +60,7 @@ CREATED BY : Abhijit Mohanty
 									<b><u>Manufacturer :</u></b>#variables.productInfo.Make#<br>
 									<b><u>Model :</u></b> #variables.productInfo.Model#<br>
 									<b><u>Product Description :</u></b> #variables.productInfo.ProductDescription#<br>
-									<b><u>Price :</u></b>#variables.productInfo.Price#
+									<b><u>Price : <i class="fa fa-inr"></i></u></b>#variables.productInfo.Price#
 								</cfoutput>
 							</div>
 							<div class="panel-footer">
